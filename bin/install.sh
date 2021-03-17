@@ -52,7 +52,6 @@ function already() {
 
 : "install packages by nix" && {
   echo "Installing packages by nix..."
-  nix-env -iA nixpkgs.myPackages
   # Doc: https://nixos.org/manual/nixpkgs/stable/#sec-declarative-package-management
   nix-env -iA nixpkgs.myPackages
   echo "Installed packages by brew!"
