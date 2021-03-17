@@ -1,0 +1,140 @@
+#+TITLE: Org-Mode Literate Config
+#+STARTUP: showeverything
+
+* HOW TO USE
+- ~org-babel-load-file~ this file
+#+begin_src emacs-lisp
+;;; package --- This is for the configuration
+;;; Commentary:
+;;; Code:
+#+end_src
+
+#+begin_src emacs-lisp
+(setq user-full-name "Kadoi Takemaru"
+      user-mail-address "diohabara@gmail.com")
+#+end_src
+
+* PATH
+Adding paths for LaTeX
+
+#+begin_src emacs-lisp
+(setenv "PATH" (concat "/Library/TeX/texbin" (getenv "PATH")))
+(setq exec-path (append '("/Library/TeX/texbin") exec-path))
+(add-to-list 'exec-path (expand-file-name "~/Library/Application\ Support/Code/User/globalStorage/matklad.rust-analyzer"))
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+#+end_src
+
+* DOOM THEME
+#+begin_src emacs-lisp
+(setq doom-theme 'doom-one)
+#+end_src
+
+* BETTER DEFAULT
+#+begin_src emacs-lisp
+(setq display-line-numbers-type 'relative)
+(global-whitespace-mode +1)
+(setq byte-compile-warnings '(cl-functions))
+#+end_src
+
+* FONTS
+#+begin_src emacs-lisp
+(setq doom-font (font-spec :family "JetBrains Mono" :size 18)
+      doom-unicode-font (font-spec :family "JetBrains Mono" :size 18)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 18)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 18)
+      doom-serif-font (font-spec :family "JetBrains Mono" :weight 'light))
+#+end_src
+
+* ORG MODE
+** DESIGN
+#+begin_src emacs-lisp
+(after! org
+  (setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
+  )
+#+end_src
+
+** ORG-TREE-SLIDE
+- You can start =org-tree-slide= by typing ~<SPC> t p~
+- While using org-tree-slide
+  + you can go to a previous page by ~<f9>~
+  + you can go to a next page by ~<f10>~.
+#+begin_src emacs-lisp
+(when (require 'org-tree-slide nil t)
+  (define-key org-tree-slide-mode-map (kbd "<f9>")
+    'org-tree-slide-move-previous-tree)
+  (define-key org-tree-slide-mode-map (kbd "<f10>")
+    'org-tree-slide-move-next-tree)
+  (define-key org-tree-slide-mode-map (kbd "<f11>")
+    'org-tree-slide-content)
+  )
+#+end_src
+
+* MONITORING
+#+begin_src emacs-lisp
+(use-package! wakatime-mode
+  :ensure t
+  :when (file-exists-p "~/.wakatime.cfg")
+  :init
+  (global-wakatime-mode))
+#+end_src
+
+* PROGRAMMING LANGUAGE
+** C/C++
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/cc
+#+begin_src emacs-lisp
+(after! ccls
+  (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
+  (set-lsp-priority! 'ccls 2)) ; optional as ccls is the default in Doom
+#+end_src
+** Emacs Lisp
++ ref
+  -  https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/emacs-lisp
+** Go
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/go
+** Haskell
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/haskell
+** JavaScript/TypeScript
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/javascript
+** LaTeX
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/latex
+** OCaml
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/ocaml
+** Python
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/python
+** Common Lisp
+First thing you need to do is type ~M-x slime~. You will start ~slime~ process, and you can interactively evaluate expressions and files.
+- ~C-c C-C~: evaluate an expression
+- ~C-c C-k~: evaluate a file
+- ~C-c C-z~: display a REPL buffer
+#+begin_src emacs-lisp
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+#+end_src
+** Rust
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/rust
+#+begin_src emacs-lisp
+(after! lsp-rust
+  (setq lsp-rust-server 'rust-analyzer))
+#+end_src
+** Scheme
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/scheme
+** Shell Script
++ ref
+  - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/sh
+
+* REFERENCES
+- [[http://dev.ariel-networks.com/wp/archives/462]]
+
+* EOF
+#+begin_src emacs-lisp
+(provide 'config)
+;;; config.el ends here
+#+end_src#+TITLE: Config

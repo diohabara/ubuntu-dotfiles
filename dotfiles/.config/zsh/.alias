@@ -1,0 +1,38 @@
+# Alias
+## for security
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias sudo='sudo -E'
+## for convenience
+### cargo
+alias c='cargo'
+alias cb='cargo build'
+alias cf='cargo fmt'
+alias ct='cargo test'
+alias cr='cargo run'
+alias e='emacs -nw'
+### ls
+if type 'exa' > /dev/null 2>&1; then
+  alias l='exa --git'
+  alias la='exa -a --git'
+  alias ll='exa -lab --git'
+  alias tree='exa --tree'
+else
+  alias l='ls'
+  alias la='ls -a'
+  alias ll='ls -al'
+fi
+### ghq
+alias gr='cd $(ghq root)'
+alias gf='cd $(ghq list -p | fzf)'
+alias gg="ghq get $*"
+### fzf
+alias fh='history -E 1 | fzf'
+## git
+alias gs='git status'
+alias gd='git diff'
+alias gp='git push orgin HEAD'
+alias gc='git commit'
+### misc
+alias typora='open -a Typora'
