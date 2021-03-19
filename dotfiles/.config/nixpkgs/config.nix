@@ -3,16 +3,77 @@
     myPackages = pkgs.buildEnv {
       name = "my-packages";
       paths = [
-        aspell
-        bc
-        coreutils
-        gdb
+        # fonts
+        noto-fonts-cjk
+        jetbrains-mono
+
+        # tools
+        alacritty
+        bash
+        bat
+        bazel
+        buildifier
+        ccls
+        clang-format
+        cmake
+        curl
+        docker
+        dotnet-sdk
+        dust
+        emacs
+        exa
+        fd
         ffmpeg
-        nixUnstable
-        emscripten
+        fzf
+        gcc
+        gh
+        ghc
+        gibo
+        git
+        git-delta
+        gitui
+        golangci-lint
+        google-chrome
+        grep
+        groovy
+        haskell-stack
+        hyperfine
         jq
-        nox
-        silver-searcher
+        llvm
+        make
+        mysql
+        neofetch
+        neovim
+        node
+        nvm
+        openssl
+        pandoc
+        pkg-config
+        procs
+        pyenv
+        python39
+        ripgrep
+        rlwrap
+        roswell
+        sbcl
+        sd
+        shellcheck
+        starship
+        svn
+        tealdeer
+        tectonic
+        tmux
+        tokei
+        typora
+        unzip
+        vlc
+        vscode
+        watchman
+        wget
+        yarn
+        youtube-dl
+        zoom
+        zsh
       ];
     };
   };
