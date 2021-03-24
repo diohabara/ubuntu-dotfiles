@@ -36,6 +36,12 @@ function already() {
 }
 
 
+: "install package by apt" && {
+  sudo apt update
+  sudo apt upgrade -y
+  sudo apt install -y pkg-config libssl-dev
+}
+
 : "install nix" && {
   if ! command_exists nix-env; then
     installing 'nix'
