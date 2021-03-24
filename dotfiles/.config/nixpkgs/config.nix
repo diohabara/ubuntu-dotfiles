@@ -1,7 +1,8 @@
 {
+  allowUnfree = true;
   packageOverrides = pkgs: with pkgs; {
     myPackages = pkgs.buildEnv {
-      name = "my-packages";
+      name = "myPackages";
       paths = [
         # fonts
         noto-fonts-cjk
@@ -14,7 +15,7 @@
         bazel
         buildifier
         ccls
-        clang-format
+        clang-tools
         cmake
         curl
         docker
@@ -30,49 +31,34 @@
         ghc
         gibo
         git
-        git-delta
-        gitui
+        gitAndTools.delta
         golangci-lint
-        google-chrome
-        grep
         groovy
-        haskell-stack
+        stack
         hyperfine
         jq
         llvm
-        make
         mysql
         neofetch
         neovim
-        node
-        nvm
         openssl
         pandoc
         pkg-config
         procs
-        pyenv
         python39
         ripgrep
         rlwrap
-        roswell
-        sbcl
         sd
         shellcheck
         starship
-        svn
         tealdeer
         tectonic
         tmux
         tokei
-        typora
         unzip
         vlc
         vscode
-        watchman
         wget
-        yarn
-        youtube-dl
-        zoom
         zsh
       ];
     };

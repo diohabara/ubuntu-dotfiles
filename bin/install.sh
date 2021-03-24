@@ -41,12 +41,13 @@ function already() {
     installing 'nix'
     # Doc: https://nixos.org/guides/install-nix.html
     sh <(curl -L https://nixos.org/nix/install)
-    nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-    nix-channel --update
+    . /home/jio/.nix-profile/etc/profile.d/nix.sh
+    # nix-channel --add https://nixos.org/channels/nixpkgs-unstable
     installed 'nix'
   else
     already 'nix'
   fi
+  nix-channel --update
 }
 
 
@@ -75,8 +76,8 @@ function already() {
   : "install ghcup" && {
     if ! command_exists ghcup; then
       installing 'ghcup'
-      # Doc: https://gitlab.haskell.org/haskell/ghcup-hs
-      curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+      # Doc: https://www.haskell.org/ghcup/
+      sudo curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
       installed 'ghcup'
     else
       already 'ghcup'
@@ -108,9 +109,16 @@ function already() {
 }
 
 : "install python" && {
+  : "install pyenv" && {
+    if ! command_exists pyenv; then
+      # Doc: https://github.com/pyenv/pyenv-installer
+      curl https://pyenv.run | bash
+    fi
+  }
+
   : "install poetry" && {
     if ! command_exists poetry; then
-        # Doc: https://python-poetry.org/docs/
+      # Doc: https://python-poetry.org/docs/
       curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
       installed 'poetry'
     else
