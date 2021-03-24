@@ -175,8 +175,6 @@ function already() {
     if command_exists cargo; then
       already 'cargo'
       cargo install cargo-check
-      cargo install cargo-raze
-      cargo install cargo-vendor
       cargo install mdbook
     fi
   }
