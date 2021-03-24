@@ -56,8 +56,6 @@
         tmux
         tokei
         unzip
-        vlc
-        vscode
         wget
         zsh
       ];
