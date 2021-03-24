@@ -83,7 +83,7 @@ function already() {
     if ! command_exists ghcup; then
       installing 'ghcup'
       # Doc: https://www.haskell.org/ghcup/
-      # curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+      curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
       installed 'ghcup'
     else
       already 'ghcup'
