@@ -149,6 +149,7 @@ function already() {
     installing 'Rust'
     # Doc: https://www.rust-lang.org/tools/install
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+    source $HOME/.cargo/env
     installed 'Rust'
   fi
   : "install rustup components" && {
@@ -174,6 +175,7 @@ function already() {
     if command_exists cargo; then
       already 'cargo'
       cargo install cargo-check
+      cargo install mdbook
     fi
   }
 }
