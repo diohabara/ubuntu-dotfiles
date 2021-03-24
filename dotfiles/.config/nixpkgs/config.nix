@@ -43,7 +43,6 @@
         neovim
         openssl
         pandoc
-        pkg-config
         procs
         python39
         ripgrep

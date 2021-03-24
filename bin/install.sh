@@ -96,7 +96,7 @@ function already() {
       stack install hoogle
     fi
 
-    if ! command_exists ghcup; then
+    if command_exists ghcup; then
       ghcup install hls
     fi
   }
@@ -174,9 +174,6 @@ function already() {
     if command_exists cargo; then
       already 'cargo'
       cargo install cargo-check
-      cargo install cargo-raze
-      cargo install cargo-vendor
-      cargo install mdbook
     fi
   }
 }
