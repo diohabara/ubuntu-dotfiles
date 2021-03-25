@@ -96,8 +96,8 @@ function already() {
 : "install nix" && {
   if ! command_exists nix-env; then
     installing 'nix'
-    # Doc: https://nixos.org/guides/install-nix.html
-    sh <(curl -L https://nixos.org/nix/install) --daemon
+    # Doc: https://nixos.org/download.html
+    curl -L https://nixos.org/nix/install | sh
     . "~/.nix-profile/etc/profile.d/nix.sh"
     # nix-channel --add https://nixos.org/channels/nixpkgs-unstable
     installed 'nix'
