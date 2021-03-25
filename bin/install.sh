@@ -236,6 +236,7 @@ function already() {
   : "install pyenv" && {
     if ! command_exists pyenv; then
       # Doc: https://github.com/pyenv/pyenv-installer
+      rm -rf ~/.pyenv
       curl https://pyenv.run | bash
       exec "$SHELL"
     fi
