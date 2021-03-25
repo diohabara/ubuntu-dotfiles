@@ -32,7 +32,7 @@ alias fh='history -E 1 | fzf'
 ## git
 alias gs='git status'
 alias gd='git diff'
-alias gp='git push orgin HEAD'
+alias gp='git push origin HEAD'
 alias gc='git commit'
 ### misc
 alias typora='open -a Typora'
