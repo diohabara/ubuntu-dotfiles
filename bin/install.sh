@@ -90,6 +90,7 @@ function already() {
                     software-properties-common \
                     python3 \
                     tmux \
+                    ibus-mozc \
 }
 
 : "install nix" && {
@@ -146,7 +147,14 @@ function already() {
   sudo apt install apt-transport-https
   sudo apt update
   sudo apt install -y code # or code-insiders
+}
 
+: "install google chrome" && {
+  # https://askubuntu.com/questions/510056/how-to-install-google-chrome
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+  sudo apt-get update 
+  sudo apt-get install -y google-chrome-stable
 }
 
 : "install starship" && {
