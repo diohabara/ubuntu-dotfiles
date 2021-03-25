@@ -115,7 +115,7 @@ function already() {
 }
 
 : "install Docker" && {
-  if command_exists docker; then
+  if ! command_exists docker; then
     # Doc: https://docs.docker.com/engine/install/ubuntu/
     sudo apt update
     sudo apt-get install -y \
