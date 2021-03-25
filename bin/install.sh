@@ -98,7 +98,7 @@ function already() {
     installing 'nix'
     # Doc: https://nixos.org/download.html
     curl -L https://nixos.org/nix/install | sh
-    . "~/.nix-profile/etc/profile.d/nix.sh"
+    . "/home/jio/.nix-profile/etc/profile.d/nix.sh"
     # nix-channel --add https://nixos.org/channels/nixpkgs-unstable
     installed 'nix'
   else
