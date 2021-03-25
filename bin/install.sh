@@ -64,7 +64,32 @@ function already() {
                     ccls \
                     clang-format \
                     emacs \
-                    
+                    ffmpeg \
+                    fzf \
+                    ghc \
+                    ghc-prof \
+                    ghc-doc \
+                    git \
+                    libfontconfig1-dev \
+                    libgraphite2-dev \
+                    libharfbuzz-dev \
+                    libicu-dev \
+                    libssl-dev \
+                    zlib1g-dev \
+                    grep \
+                    jq \
+                    libssl-dev \
+                    llvm \
+                    neovim \
+                    neofetch \
+                    shellcheck \
+                    unzip \
+                    wget \
+                    zsh \
+                    rlwrap \
+                    software-properties-common \
+                    python3 \
+                    tmux \
 }
 
 : "install nix" && {
@@ -85,7 +110,7 @@ function already() {
   echo "Installing packages by nix..."
   # Doc: https://nixos.org/manual/nixpkgs/stable/#sec-declarative-package-management
   nix-env -iA nixpkgs.myPackages
-  echo "Installed packages by brew!"
+  echo "Installed packages by nix!"
 }
 
 : "install Docker" && {
@@ -105,6 +130,14 @@ function already() {
   sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 }
 
+: "install gh" && {
+  # Doc: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+  sudo apt-add-repository https://cli.github.com/packages
+  sudo apt update
+  sudo apt install -y gh
+}
+
 : "install visual studio code" && {
   # Doc: https://code.visualstudio.com/docs/setup/linux
   wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -114,6 +147,11 @@ function already() {
   sudo apt update
   sudo apt install -y code # or code-insiders
 
+}
+
+: "install starship" && {
+  # Doc: https://starship.rs/
+  curl -fsSL https://starship.rs/install.sh | bash
 }
 
 : "install go packages" && {
@@ -130,8 +168,10 @@ function already() {
     go get -u golang.org/x/tools/cmd/guru
     go get -u github.com/cweill/gotests/...
     go get -u github.com/fatih/gomodifytags
-    go get github.com/bazelbuild/bazelisk # Doc: https://docs.bazel.build/versions/master/install-ubuntu.html
-    go get github.com/bazelbuild/buildtools/buildifier https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
+    go get -u github.com/bazelbuild/bazelisk # Doc: https://docs.bazel.build/versions/master/install-ubuntu.html
+    go get -u github.com/bazelbuild/buildtools/buildifier https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
+    go get -u github.com/x-motemen/ghq # https://github.com/x-motemen/ghq
+    go get -u github.com/golangci/golangci-lint/cmd/golangci-lint # https://golangci-lint.run/usage/install/
   fi
 }
 
@@ -176,6 +216,7 @@ function already() {
     if ! command_exists pyenv; then
       # Doc: https://github.com/pyenv/pyenv-installer
       curl https://pyenv.run | bash
+      exec $SHELL
     fi
   }
 
@@ -239,6 +280,14 @@ function already() {
       cargo install cargo-vendor
       cargo install mdbook
       cargo install du-dust
+      cargo install git-delta
+      cargo install hyperfine
+      cargo install tectonic
+      cargo install tealdeer
+      cargo install tokei
+      cargo install procs
+      cargo install ripgrep
+      cargo install sd
     fi
   }
 }
