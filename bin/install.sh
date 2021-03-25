@@ -115,51 +115,61 @@ function already() {
 }
 
 : "install Docker" && {
-  # Doc: https://docs.docker.com/engine/install/ubuntu/
-  sudo apt update
-  sudo apt-get install -y \
-                        apt-transport-https \
-                        ca-certificates \
-                        curl \
-                        gnupg \
-                        lsb-release
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-  echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt update
-  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+  if command_exists docker; then
+    # Doc: https://docs.docker.com/engine/install/ubuntu/
+    sudo apt update
+    sudo apt-get install -y \
+                          apt-transport-https \
+                          ca-certificates \
+                          curl \
+                          gnupg \
+                          lsb-release
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    echo \
+    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt update
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+  fi
 }
 
 : "install gh" && {
-  # Doc: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-  sudo apt-add-repository https://cli.github.com/packages
-  sudo apt update
-  sudo apt install -y gh
+  if ! command_exists gh; then
+    # Doc: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+    sudo apt-add-repository https://cli.github.com/packages
+    sudo apt update
+    sudo apt install -y gh
+  fi
 }
 
 : "install visual studio code" && {
-  # Doc: https://code.visualstudio.com/docs/setup/linux
-  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-  sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-  sudo apt install apt-transport-https
-  sudo apt update
-  sudo apt install -y code # or code-insiders
+  if ! command_exists code; then
+    # Doc: https://code.visualstudio.com/docs/setup/linux
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+    sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+    sudo apt install apt-transport-https
+    sudo apt update
+    sudo apt install -y code # or code-insiders
+  fi
 }
 
 : "install google chrome" && {
-  # https://askubuntu.com/questions/510056/how-to-install-google-chrome
-  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-  sudo apt-get update
-  sudo apt-get install -y google-chrome-stable
+  if ! command_exists google-chrome-stable; then
+    # https://askubuntu.com/questions/510056/how-to-install-google-chrome
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+    sudo apt-get update
+    sudo apt-get install -y google-chrome-stable
+  fi
 }
 
 : "install starship" && {
-  # Doc: https://starship.rs/
-  curl -fsSL https://starship.rs/install.sh | bash
+  if ! command_exists starship; then
+    # Doc: https://starship.rs/
+    curl -fsSL https://starship.rs/install.sh | bash
+  fi
 }
 
 : "install go packages" && {
