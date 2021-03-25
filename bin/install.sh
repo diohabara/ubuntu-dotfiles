@@ -67,20 +67,15 @@ function already() {
                     ibus-mozc \
                     jq \
                     libfontconfig1-dev \
-                    libfontconfig1-dev \
                     libfreetype6-dev \
                     libgraphite2-dev \
                     libharfbuzz-dev \
-                    libicu-dev \
-                    libssl-dev \
-                    libssl-dev \
                     libssl-dev \
                     libxcb-xfixes0-dev \
                     llvm \
                     lsb-release \
                     neofetch \
                     neovim \
-                    pkg-config \
                     pkg-config \
                     python3 \
                     rlwrap \
