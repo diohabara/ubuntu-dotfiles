@@ -238,7 +238,6 @@ function already() {
       # Doc: https://github.com/pyenv/pyenv-installer
       rm -rf ~/.pyenv
       curl https://pyenv.run | bash
-      exec "$SHELL"
     fi
   }
 
