@@ -24,3 +24,4 @@ fi
 cd "${REPO_ROOT}"
 ./bin/link.sh
 ./bin/install.sh
+chsh -s $(which zsh)
