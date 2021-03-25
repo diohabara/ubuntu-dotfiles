@@ -11,7 +11,7 @@ REPO_ROOT="${GHQ_ROOT}/github.com/diohabara/ubuntu-dotfiles"
 if ! command -v git &> /dev/null; then
   sudo apt update
   sudo apt upgrade -y
-  sudo apt install git
+  sudo apt install -y git
 fi
 
 if [ ! -d "${REPO_ROOT}" ]; then
