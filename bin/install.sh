@@ -36,10 +36,35 @@ function already() {
 }
 
 
-: "install package by apt" && {
+: "uninstall packages by apt" && {
+ sudo apt purge -y --autoremove \
+                              nano \
+                              firefox \
+}
+
+: "install packages by apt" && {
   sudo apt update
   sudo apt upgrade -y
-  sudo apt install -y pkg-config libssl-dev
+  sudo apt install -y \
+                    pkg-config \
+                    libssl-dev \
+                    cmake \
+                    pkg-config \
+                    libfreetype6-dev \
+                    libfontconfig1-dev \
+                    libxcb-xfixes0-dev \
+                    build-essential \
+                    apt-transport-https \
+                    ca-certificates \
+                    curl \
+                    gnupg \
+                    lsb-release \
+                    bash \
+                    bat \
+                    ccls \
+                    clang-format \
+                    emacs \
+                    
 }
 
 : "install nix" && {
@@ -56,7 +81,6 @@ function already() {
   nix-channel --update
 }
 
-
 : "install packages by nix" && {
   echo "Installing packages by nix..."
   # Doc: https://nixos.org/manual/nixpkgs/stable/#sec-declarative-package-management
@@ -64,8 +88,39 @@ function already() {
   echo "Installed packages by brew!"
 }
 
+: "install Docker" && {
+  # Doc: https://docs.docker.com/engine/install/ubuntu/
+  sudo apt update
+  sudo apt-get install -y \
+                        apt-transport-https \
+                        ca-certificates \
+                        curl \
+                        gnupg \
+                        lsb-release
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt update
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+}
+
+: "install visual studio code" && {
+  # Doc: https://code.visualstudio.com/docs/setup/linux
+  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+  sudo install -y -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+  sudo apt install apt-transport-https
+  sudo apt update
+  sudo apt install -y code # or code-insiders
+
+}
 
 : "install go packages" && {
+  if ! command_exists go; then
+    # Doc: https://golang.org/doc/install
+    rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.2.linux-amd64.tar.gz
+  fi
   if command_exists go; then
     go get -u github.com/motemen/gore/cmd/gore
     go get -u github.com/stamblerre/gocode
@@ -75,6 +130,8 @@ function already() {
     go get -u golang.org/x/tools/cmd/guru
     go get -u github.com/cweill/gotests/...
     go get -u github.com/fatih/gomodifytags
+    go get github.com/bazelbuild/bazelisk # Doc: https://docs.bazel.build/versions/master/install-ubuntu.html
+    go get github.com/bazelbuild/buildtools/buildifier https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
   fi
 }
 
@@ -174,8 +231,14 @@ function already() {
   : "install cargo packages" && {
     if command_exists cargo; then
       already 'cargo'
+      cargo install alacritty
+      cargo install exa
+      cargo install fd-find
       cargo install cargo-check
+      cargo install cargo-raze
+      cargo install cargo-vendor
       cargo install mdbook
+      cargo install du-dust
     fi
   }
 }
