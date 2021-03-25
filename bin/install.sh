@@ -203,8 +203,12 @@ function already() {
     else
       already 'ghcup'
     fi
+
+    if command_exists ghcup; then
+      ghcup install hls
+    fi
   }
-  : "install haskell package" && {
+  : "install stack" && {
     if ! command_exists stack; then
       curl -sSL https://get.haskellstack.org/ | sh
     fi
@@ -213,10 +217,6 @@ function already() {
       stack setup
       stack install ghc-mod
       stack install hoogle
-    fi
-
-    if command_exists ghcup; then
-      ghcup install hls
     fi
   }
 }
