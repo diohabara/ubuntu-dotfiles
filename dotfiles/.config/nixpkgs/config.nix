@@ -7,56 +7,10 @@
         # fonts
         noto-fonts-cjk
         jetbrains-mono
-
-        # tools
-        alacritty
-        bash
-        bat
-        bazel
-        buildifier
-        ccls
-        clang-tools
-        cmake
-        curl
-        docker
-        dotnet-sdk
-        dust
-        emacs
-        exa
-        fd
-        ffmpeg
-        fzf
-        gcc
-        gh
-        ghc
-        gibo
-        git
-        gitAndTools.delta
-        golangci-lint
-        groovy
-        stack
-        hyperfine
-        jq
-        llvm
-        mysql
-        neofetch
-        neovim
-        openssl
-        pandoc
-        procs
-        python39
-        ripgrep
-        rlwrap
-        sd
-        shellcheck
-        starship
-        tealdeer
-        tectonic
-        tmux
-        tokei
-        unzip
-        wget
-        zsh
+        cascadia-code
+        roboto
+        source-code-pro
+        nerdfonts
       ];
     };
   };
