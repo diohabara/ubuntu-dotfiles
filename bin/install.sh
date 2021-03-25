@@ -37,68 +37,68 @@ function already() {
 
 
 : "uninstall packages by apt" && {
- sudo apt purge -y --autoremove \
-                              nano \
+  sudo apt purge -y --autoremove \
                               firefox \
+                              nano
 }
 
 : "install packages by apt" && {
   sudo apt update
   sudo apt upgrade -y
   sudo apt install -y \
-                    pkg-config \
-                    libssl-dev \
-                    cmake \
-                    pkg-config \
-                    libfreetype6-dev \
-                    libfontconfig1-dev \
-                    libxcb-xfixes0-dev \
-                    build-essential \
                     apt-transport-https \
-                    ca-certificates \
-                    curl \
-                    gnupg \
-                    lsb-release \
                     bash \
                     bat \
+                    build-essential \
+                    ca-certificates \
                     ccls \
                     clang-format \
+                    cmake \
+                    curl \
                     emacs \
                     ffmpeg \
                     fzf \
                     ghc \
-                    ghc-prof \
                     ghc-doc \
+                    ghc-prof \
                     git \
+                    gnupg \
+                    grep \
+                    ibus-mozc \
+                    jq \
                     libfontconfig1-dev \
+                    libfontconfig1-dev \
+                    libfreetype6-dev \
                     libgraphite2-dev \
                     libharfbuzz-dev \
                     libicu-dev \
                     libssl-dev \
-                    zlib1g-dev \
-                    grep \
-                    jq \
                     libssl-dev \
+                    libssl-dev \
+                    libxcb-xfixes0-dev \
                     llvm \
-                    neovim \
+                    lsb-release \
                     neofetch \
+                    neovim \
+                    pkg-config \
+                    pkg-config \
+                    python3 \
+                    rlwrap \
                     shellcheck \
+                    software-properties-common \
+                    tmux \
                     unzip \
                     wget \
-                    zsh \
-                    rlwrap \
-                    software-properties-common \
-                    python3 \
-                    tmux \
-                    ibus-mozc \
+                    zlib1g-dev \
+                    zsh
 }
 
 : "install nix" && {
   if ! command_exists nix-env; then
     installing 'nix'
     # Doc: https://nixos.org/guides/install-nix.html
-    sh <(curl -L https://nixos.org/nix/install)
-    . /home/jio/.nix-profile/etc/profile.d/nix.sh
+    sh <(curl -L https://nixos.org/nix/install) --daemon
+    . "~/.nix-profile/etc/profile.d/nix.sh"
     # nix-channel --add https://nixos.org/channels/nixpkgs-unstable
     installed 'nix'
   else
@@ -153,7 +153,7 @@ function already() {
   # https://askubuntu.com/questions/510056/how-to-install-google-chrome
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-  sudo apt-get update 
+  sudo apt-get update
   sudo apt-get install -y google-chrome-stable
 }
 
@@ -168,18 +168,18 @@ function already() {
     rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.2.linux-amd64.tar.gz
   fi
   if command_exists go; then
+    go get -u github.com/bazelbuild/bazelisk # Doc: https://docs.bazel.build/versions/master/install-ubuntu.html
+    go get -u github.com/bazelbuild/buildtools/buildifier https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
+    go get -u github.com/cweill/gotests/...
+    go get -u github.com/fatih/gomodifytags
+    go get -u github.com/golangci/golangci-lint/cmd/golangci-lint # https://golangci-lint.run/usage/install/
     go get -u github.com/motemen/gore/cmd/gore
     go get -u github.com/stamblerre/gocode
+    go get -u github.com/x-motemen/ghq # https://github.com/x-motemen/ghq
     go get -u golang.org/x/tools/cmd/godoc
     go get -u golang.org/x/tools/cmd/goimports
     go get -u golang.org/x/tools/cmd/gorename
     go get -u golang.org/x/tools/cmd/guru
-    go get -u github.com/cweill/gotests/...
-    go get -u github.com/fatih/gomodifytags
-    go get -u github.com/bazelbuild/bazelisk # Doc: https://docs.bazel.build/versions/master/install-ubuntu.html
-    go get -u github.com/bazelbuild/buildtools/buildifier https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
-    go get -u github.com/x-motemen/ghq # https://github.com/x-motemen/ghq
-    go get -u github.com/golangci/golangci-lint/cmd/golangci-lint # https://golangci-lint.run/usage/install/
   fi
 }
 
@@ -210,11 +210,11 @@ function already() {
 : "install ocaml" && {
   : "install opam packages" && {
     if command_exists opam; then
-      opam install merlin
-      opam install utop
-      opam install ocp-indent
       opam install dune
+      opam install merlin
       opam install ocamlformat
+      opam install ocp-indent
+      opam install utop
     fi
   }
 }
@@ -224,7 +224,7 @@ function already() {
     if ! command_exists pyenv; then
       # Doc: https://github.com/pyenv/pyenv-installer
       curl https://pyenv.run | bash
-      exec $SHELL
+      exec "$SHELL"
     fi
   }
 
@@ -240,12 +240,12 @@ function already() {
   : "install via pip3" && {
     if command_exists pip3; then
       already 'pip3'
-      pip3 install wakatime
-      pip3 install pytest
       pip3 install black
-      pip3 install pyflakes
       pip3 install isort
+      pip3 install pyflakes
+      pip3 install pytest
       pip3 install python-language-server[all]
+      pip3 install wakatime
     fi
   }
 }
@@ -255,7 +255,7 @@ function already() {
     installing 'Rust'
     # Doc: https://www.rust-lang.org/tools/install
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-    source $HOME/.cargo/env
+    source "~/.cargo/env"
     installed 'Rust'
   fi
   : "install rustup components" && {
@@ -281,21 +281,21 @@ function already() {
     if command_exists cargo; then
       already 'cargo'
       cargo install alacritty
-      cargo install exa
-      cargo install fd-find
       cargo install cargo-check
       cargo install cargo-raze
       cargo install cargo-vendor
-      cargo install mdbook
       cargo install du-dust
+      cargo install exa
+      cargo install fd-find
       cargo install git-delta
       cargo install hyperfine
-      cargo install tectonic
-      cargo install tealdeer
-      cargo install tokei
+      cargo install mdbook
       cargo install procs
       cargo install ripgrep
       cargo install sd
+      cargo install tealdeer
+      cargo install tectonic
+      cargo install tokei
     fi
   }
 }
