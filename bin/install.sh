@@ -215,7 +215,6 @@ function already() {
 
     if command_exists stack; then
       stack setup
-      stack install ghc-mod
       stack install hoogle
     fi
   }
