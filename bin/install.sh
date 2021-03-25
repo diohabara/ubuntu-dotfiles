@@ -210,7 +210,6 @@ function already() {
 
     if command_exists stack; then
       stack setup
-      stack install ghc-mod
       stack install hoogle
     fi
   }
@@ -232,8 +231,8 @@ function already() {
   : "install pyenv" && {
     if ! command_exists pyenv; then
       # Doc: https://github.com/pyenv/pyenv-installer
+      rm -rf ~/.pyenv
       curl https://pyenv.run | bash
-      exec "$SHELL"
     fi
   }
 
@@ -264,7 +263,7 @@ function already() {
     installing 'Rust'
     # Doc: https://www.rust-lang.org/tools/install
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-    source "~/.cargo/env"
+    source "$HOME"/.cargo/env
     installed 'Rust'
   fi
   : "install rustup components" && {
