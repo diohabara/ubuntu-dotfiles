@@ -8,6 +8,12 @@ REPO_URI='https://github.com/diohabara/ubuntu-dotfiles.git'
 GHQ_ROOT="${HOME}/repo"
 REPO_ROOT="${GHQ_ROOT}/github.com/diohabara/ubuntu-dotfiles"
 
+if ! command -v git &> /dev/null; then
+  sudo apt update
+  sudo apt upgrade -y
+  sudo apt install git
+fi
+
 if [ ! -d "${REPO_ROOT}" ]; then
     command git clone "${REPO_URI}" "${REPO_ROOT}"
 else
