@@ -72,7 +72,8 @@ function already() {
                     libfreetype6-dev \
                     libgraphite2-dev \
                     libharfbuzz-dev \
-                    libssl-dev \
+                    libssl-dev=1.1.1-1ubuntu2.1~18.04.9 \
+                    libssl1.0-dev=1.0.2n-ubuntu5.6 \
                     libxcb-xfixes0-dev \
                     llvm \
                     lsb-release \
