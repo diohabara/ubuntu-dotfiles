@@ -51,17 +51,14 @@ function already() {
   sudo apt install -y \
                     apt-transport-https \
                     bash \
-                    bat \
                     build-essential \
                     ca-certificates \
-                    ccls \
                     clang-format \
                     cmake \
                     curl \
                     emacs \
                     ffmpeg \
                     fonts-noto-cjk \
-                    fzf \
                     ghc \
                     ghc-doc \
                     ghc-prof \
@@ -75,13 +72,6 @@ function already() {
                     libfreetype6-dev \
                     libgraphite2-dev \
                     libharfbuzz-dev \
-                    libroot-graf2d-postscript-dev \
-                    libroot-graf3d-g3d-dev \
-                    libroot-math-foam-dev \
-                    libroot-math-mathmore-dev \
-                    libroot-math-minuit-dev \
-                    libroot-math-physics-dev \
-                    libroot-roofit-dev \
                     libssl-dev \
                     libxcb-xfixes0-dev \
                     llvm \
@@ -93,7 +83,6 @@ function already() {
                     pkg-config \
                     python3 \
                     rlwrap \
-                    root-system-bin \
                     shellcheck \
                     software-properties-common \
                     tmux \
