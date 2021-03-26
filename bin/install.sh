@@ -293,7 +293,7 @@ function already() {
       gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
 
       # use alacritty as default desktop terminal
-      gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
+      gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/alacritty
 
       # remote temporary dir
       cd ..
