@@ -78,6 +78,7 @@ function already() {
                     neofetch \
                     neovim \
                     nodejs \
+                    fonts-noto-cjk \
                     npm \
                     pkg-config \
                     python3 \
@@ -91,25 +92,11 @@ function already() {
                     zsh
 }
 
-: "install nix" && {
-  if ! command_exists nix-env; then
-    installing 'nix'
-    # Doc: https://nixos.org/download.html
-    curl -L https://nixos.org/nix/install | sh
-    . "/home/jio/.nix-profile/etc/profile.d/nix.sh"
-    # nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-    installed 'nix'
-  else
-    already 'nix'
-  fi
-  nix-channel --update
-}
-
-: "install packages by nix" && {
-  echo "Installing packages by nix..."
-  # Doc: https://nixos.org/manual/nixpkgs/stable/#sec-declarative-package-management
-  nix-env -iA nixpkgs.myPackages
-  echo "Installed packages by nix!"
+: "install fonts" && {
+  # Doc: https://github.com/JetBrains/JetBrainsMono
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+  # Doc: https://github.com/ryanoasis/nerd-fonts#option-3-install-script
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh)"
 }
 
 : "install Docker" && {
@@ -308,7 +295,6 @@ function already() {
     fi
   }
 }
-
 
 : "install npm packages" && {
   if command_exists npm; then

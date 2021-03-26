@@ -14,4 +14,12 @@
       ];
     };
   };
+  fonts.fonts = with pkgs; [
+    noto-fonts-cjk
+    jetbrains-mono
+    cascadia-code
+    roboto
+    source-code-pro
+    nerdfonts
+  ]
 }
