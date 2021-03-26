@@ -95,7 +95,7 @@ function already() {
 }
 
 : "install fzf" && {
-  if ! command_exists fzf; then
+  if ! [-d ~/.fzf ]; then
     # Doc: https://github.com/junegunn/fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
