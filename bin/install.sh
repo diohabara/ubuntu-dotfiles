@@ -46,6 +46,7 @@ function already() {
 }
 
 : "install packages by apt" && {
+  echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list # https://askubuntu.com/questions/462094/unable-to-install-libssl1-0-0i386-due-to-unmet-dependencies/462471#462471
   sudo apt update
   sudo apt upgrade -y
   sudo apt install -y \
@@ -72,8 +73,8 @@ function already() {
                     libfreetype6-dev \
                     libgraphite2-dev \
                     libharfbuzz-dev \
-                    libssl-dev/trusty \
-                    libssl1.0/trusty \
+                    libssl-dev \
+                    libssl1.0 \
                     libxcb-xfixes0-dev \
                     llvm \
                     lsb-release \
