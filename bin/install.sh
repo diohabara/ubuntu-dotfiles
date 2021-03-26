@@ -88,6 +88,10 @@ function already() {
                     zsh
 }
 
+: "install packages by snap" && {
+  sudo snap install alacritty --classic
+}
+
 : "install nix" && {
   if ! command_exists nix-env; then
     installing 'nix'
@@ -288,7 +292,6 @@ function already() {
   : "install cargo packages" && {
     if command_exists cargo; then
       already 'cargo'
-      cargo install alacritty
       cargo install cargo-check
       cargo install cargo-raze
       cargo install cargo-vendor
