@@ -35,6 +35,9 @@ function already() {
   echo "$1 is already installed"
 }
 
+: "remapping" && {
+  gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" # turn capslock into control
+}
 
 : "uninstall packages by apt" && {
   sudo apt purge -y --autoremove \
