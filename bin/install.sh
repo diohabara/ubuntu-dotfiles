@@ -78,6 +78,7 @@ function already() {
                     lsb-release \
                     neofetch \
                     neovim \
+                    node-gyp \
                     nodejs \
                     npm \
                     pkg-config \
