@@ -72,8 +72,6 @@ function already() {
                     libharfbuzz-dev \
                     libssl-dev \
                     libxcb-xfixes0-dev \
-                    libxcursor \
-                    libxi \
                     llvm \
                     lsb-release \
                     neofetch \
