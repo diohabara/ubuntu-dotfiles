@@ -166,7 +166,7 @@ function already() {
 "install go packages" && {
   if ! command_exists go; then
     # Doc: https://github.com/golang/go/wiki/Ubuntu
-    curl -LO https://get.golang.org/$(uname)/go_installer && chmod +x go_installer && ./go_installer && rm go_installer
+    curl -LO "https://get.golang.org/$(uname)/go_installer" && chmod +x go_installer && ./go_installer && rm go_installer
     export GOROOT=/usr/lib/go
     export GOPATH=$HOME/go
     export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -225,10 +225,10 @@ function already() {
     # Doc: https://ocaml.org/docs/install.html
     # environment setup
     opam init
-    eval `opam env`
+    eval "$(opam env)"
     # install given version of the compiler
     opam switch create 4.12.0
-    eval `opam env`
+    eval "$(opam env)"
     # check you got what you want
     which ocaml
     ocaml -version
@@ -252,8 +252,8 @@ function already() {
       rm -rf ~/.pyenv
       curl https://pyenv.run | bash
       # Doc: https://github.com/pyenv/pyenv
-      echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-      echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+      echo "export PYENV_ROOT='$HOME/.pyenv'" >> ~/.bashrc
+      echo "export PATH='$PYENV_ROOT/bin:$PATH'" >> ~/.bashrc
     fi
   }
 
