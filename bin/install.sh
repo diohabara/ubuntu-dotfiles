@@ -80,6 +80,7 @@ function already() {
                     neovim \
                     node-gyp \
                     nodejs \
+                    nodejs-dev \
                     npm \
                     pkg-config \
                     python3 \
