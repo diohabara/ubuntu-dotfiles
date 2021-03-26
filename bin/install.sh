@@ -103,7 +103,6 @@ function already() {
     already 'nix'
   fi
   nix-channel --update
-  export "~/.nix-profile/bin"
 }
 
 : "install packages by nix" && {
