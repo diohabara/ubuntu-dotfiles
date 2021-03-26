@@ -64,6 +64,7 @@ function already() {
                     git \
                     gnupg \
                     grep \
+                    gzip \
                     ibus-mozc \
                     jq \
                     libfontconfig1-dev \
