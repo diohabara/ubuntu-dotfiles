@@ -72,8 +72,8 @@ function already() {
                     libfreetype6-dev \
                     libgraphite2-dev \
                     libharfbuzz-dev \
-                    libssl1.0.0/trusty \
                     libssl-dev/trusty \
+                    libssl1.0/trusty \
                     libxcb-xfixes0-dev \
                     llvm \
                     lsb-release \
