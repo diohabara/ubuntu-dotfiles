@@ -79,7 +79,6 @@ function already() {
                     lsb-release \
                     neofetch \
                     neovim \
-                    npm \
                     pkg-config \
                     python3 \
                     rlwrap \
