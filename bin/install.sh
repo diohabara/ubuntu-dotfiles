@@ -252,8 +252,9 @@ function already() {
       rm -rf ~/.pyenv
       curl https://pyenv.run | bash
       # Doc: https://github.com/pyenv/pyenv
-      echo "export PYENV_ROOT='$HOME/.pyenv'" >> ~/.bashrc
-      echo "export PATH='$PYENV_ROOT/bin:$PATH'" >> ~/.bashrc
+      export PATH="/home/jio/.pyenv/bin:$PATH"
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
     fi
   }
 
