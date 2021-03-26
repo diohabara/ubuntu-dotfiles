@@ -77,6 +77,8 @@ function already() {
                     lsb-release \
                     neofetch \
                     neovim \
+                    nodejs \
+                    npm \
                     pkg-config \
                     python3 \
                     rlwrap \
@@ -101,6 +103,7 @@ function already() {
     already 'nix'
   fi
   nix-channel --update
+  export "~/.nix-profile/bin"
 }
 
 : "install packages by nix" && {
@@ -165,6 +168,9 @@ function already() {
   if ! command_exists go; then
     # Doc: https://github.com/golang/go/wiki/Ubuntu
     curl -LO https://get.golang.org/$(uname)/go_installer && chmod +x go_installer && ./go_installer && rm go_installer
+    export GOROOT=/usr/lib/go
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
   fi
   if command_exists go; then
     go get -u github.com/bazelbuild/bazelisk # Doc: https://docs.bazel.build/versions/master/install-ubuntu.html
@@ -189,6 +195,7 @@ function already() {
       # Doc: https://www.haskell.org/ghcup/
       curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
       installed 'ghcup'
+      . ~/.ghcup/env
     else
       already 'ghcup'
     fi
@@ -199,7 +206,10 @@ function already() {
   }
   : "install stack" && {
     if ! command_exists stack; then
+      # Doc: https://docs.haskellstack.org/en/stable/install_and_upgrade/
       curl -sSL https://get.haskellstack.org/ | sh
+      export PATH="$HOME/.local/bin"
+      eval "$(stack --bash-completion-script stack)"
     fi
 
     if command_exists stack; then
@@ -210,6 +220,21 @@ function already() {
 }
 
 : "install ocaml" && {
+  : "install opam & ocaml" && {
+    # Doc: https://opam.ocaml.org/doc/Install.html
+    sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
+    # Doc: https://ocaml.org/docs/install.html
+    # environment setup
+    opam init
+    eval `opam env`
+    # install given version of the compiler
+    opam switch create 4.12.0
+    eval `opam env`
+    # check you got what you want
+    which ocaml
+    ocaml -version
+  }
+
   : "install opam packages" && {
     if command_exists opam; then
       opam install dune
@@ -227,6 +252,9 @@ function already() {
       # Doc: https://github.com/pyenv/pyenv-installer
       rm -rf ~/.pyenv
       curl https://pyenv.run | bash
+      # Doc: https://github.com/pyenv/pyenv
+      echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+      echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
     fi
   }
 
@@ -304,7 +332,7 @@ function already() {
     if ! command_exists alacritty; then
       # Doc: https://github.com/alacritty/alacritty/blob/master/INSTALL.md#desktop-entry
       # install required tools
-      apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+      sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
 
       # download and build alacritty
       git clone https://github.com/alacritty/alacritty.git
