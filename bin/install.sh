@@ -187,66 +187,6 @@ function already() {
   fi
 }
 
-: "install haskell" && {
-  : "install ghcup" && {
-    if ! command_exists ghcup; then
-      installing 'ghcup'
-      # Doc: https://www.haskell.org/ghcup/
-      curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-      installed 'ghcup'
-      . ~/.ghcup/env
-    else
-      already 'ghcup'
-    fi
-
-    if command_exists ghcup; then
-      ghcup install hls
-    fi
-  }
-  : "install stack" && {
-    if ! command_exists stack; then
-      # Doc: https://docs.haskellstack.org/en/stable/install_and_upgrade/
-      curl -sSL https://get.haskellstack.org/ | sh
-      export PATH="$HOME/.local/bin"
-      eval "$(stack --bash-completion-script stack)"
-    fi
-
-    if command_exists stack; then
-      stack setup
-      stack install hoogle
-    fi
-  }
-}
-
-: "install ocaml" && {
-  : "install opam & ocaml" && {
-    if ! command_exists opam; then
-      # Doc: https://opam.ocaml.org/doc/Install.html
-      sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
-    fi
-
-    if ! command_exists ocaml; then
-      # Doc: https://ocaml.org/docs/install.html
-      # environment setup
-      opam init
-      eval "$(opam env)"
-      # install given version of the compiler
-      opam switch create 4.12.0
-      eval "$(opam env)"
-    fi
-  }
-
-  : "install opam packages" && {
-    if command_exists opam; then
-      opam install dune
-      opam install merlin
-      opam install ocamlformat
-      opam install ocp-indent
-      opam install utop
-    fi
-  }
-}
-
 : "install python" && {
   : "install pyenv" && {
     if ! command_exists pyenv; then
@@ -255,8 +195,6 @@ function already() {
       curl https://pyenv.run | bash
       # Doc: https://github.com/pyenv/pyenv
       export PATH="/home/jio/.pyenv/bin:$PATH"
-      eval "$(pyenv init -)"
-      eval "$(pyenv virtualenv-init -)"
     fi
   }
 
@@ -269,6 +207,7 @@ function already() {
       already 'poetry'
     fi
   }
+
   : "install via pip3" && {
     if command_exists pip3; then
       already 'pip3'
