@@ -220,18 +220,20 @@ function already() {
 
 : "install ocaml" && {
   : "install opam & ocaml" && {
-    # Doc: https://opam.ocaml.org/doc/Install.html
-    sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
-    # Doc: https://ocaml.org/docs/install.html
-    # environment setup
-    opam init
-    eval "$(opam env)"
-    # install given version of the compiler
-    opam switch create 4.12.0
-    eval "$(opam env)"
-    # check you got what you want
-    which ocaml
-    ocaml -version
+    if ! command_exists opam; then
+      # Doc: https://opam.ocaml.org/doc/Install.html
+      sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)
+    fi
+
+    if ! command_exists ocaml; then
+      # Doc: https://ocaml.org/docs/install.html
+      # environment setup
+      opam init
+      eval "$(opam env)"
+      # install given version of the compiler
+      opam switch create 4.12.0
+      eval "$(opam env)"
+    fi
   }
 
   : "install opam packages" && {
