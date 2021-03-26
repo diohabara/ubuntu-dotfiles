@@ -41,7 +41,6 @@ function already() {
 
 : "uninstall packages by apt" && {
   sudo apt purge -y --autoremove \
-                              firefox \
                               nano
 }
 
@@ -59,6 +58,7 @@ function already() {
                     curl \
                     emacs \
                     ffmpeg \
+                    firefox \
                     fonts-noto-cjk \
                     gnupg \
                     grep \
@@ -140,16 +140,6 @@ function already() {
     sudo apt install apt-transport-https
     sudo apt update
     sudo apt install -y code # or code-insiders
-  fi
-}
-
-: "install google chrome" && {
-  if ! command_exists google-chrome-stable; then
-    # https://askubuntu.com/questions/510056/how-to-install-google-chrome
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-    sudo apt-get update
-    sudo apt-get install -y google-chrome-stable
   fi
 }
 
