@@ -74,7 +74,6 @@ function already() {
                     libgraphite2-dev \
                     libharfbuzz-dev \
                     libssl-dev \
-                    libssl1.0 \
                     libxcb-xfixes0-dev \
                     llvm \
                     lsb-release \
