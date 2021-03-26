@@ -69,6 +69,8 @@ function already() {
                     gzip \
                     ibus-mozc \
                     jq \
+                    libssl1.0-dev \
+                    nodejs \
                     libfontconfig1-dev \
                     libfreetype6-dev \
                     libgraphite2-dev \
@@ -80,7 +82,6 @@ function already() {
                     neofetch \
                     neovim \
                     node-gyp \
-                    nodejs \
                     nodejs-dev \
                     npm \
                     pkg-config \
