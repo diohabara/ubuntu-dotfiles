@@ -32,8 +32,8 @@ source ${XDG_CONFIG_HOME}/zsh/".alias"
 
 # PATH
 export PATH="/usr/local/bin:$PATH"
-export PATH="$PATH:~/.local/bin"
-export PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
+export PATH="~/.emacs.d/bin:$PATH"
 
 ## LLVM
 export PATH="/usr/local/opt/llvm/bin:$PATH" # LLVM

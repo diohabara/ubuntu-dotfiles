@@ -60,10 +60,6 @@ function already() {
                     emacs \
                     ffmpeg \
                     fonts-noto-cjk \
-                    ghc \
-                    ghc-doc \
-                    ghc-prof \
-                    git \
                     gnupg \
                     grep \
                     gzip \
@@ -166,6 +162,13 @@ function already() {
     tar xf clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
     cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PWD/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04
     cmake --build Release
+  fi
+}
+
+"install Doom Emacs" && {
+  if ! command_exists bin/doom; then
+    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+    ~/.emacs.d/bin/doom install
   fi
 }
 
