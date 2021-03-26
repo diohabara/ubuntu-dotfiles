@@ -60,6 +60,7 @@ function already() {
                     curl \
                     emacs \
                     ffmpeg \
+                    fonts-noto-cjk \
                     fzf \
                     ghc \
                     ghc-doc \
@@ -74,6 +75,13 @@ function already() {
                     libfreetype6-dev \
                     libgraphite2-dev \
                     libharfbuzz-dev \
+                    libroot-graf2d-postscript-dev \
+                    libroot-graf3d-g3d-dev \
+                    libroot-math-foam-dev \
+                    libroot-math-mathmore-dev \
+                    libroot-math-minuit-dev \
+                    libroot-math-physics-dev \
+                    libroot-roofit-dev \
                     libssl-dev \
                     libxcb-xfixes0-dev \
                     llvm \
@@ -81,11 +89,11 @@ function already() {
                     neofetch \
                     neovim \
                     nodejs \
-                    fonts-noto-cjk \
                     npm \
                     pkg-config \
                     python3 \
                     rlwrap \
+                    root-system-bin \
                     shellcheck \
                     software-properties-common \
                     tmux \
@@ -100,6 +108,14 @@ function already() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
   # Doc: https://github.com/ryanoasis/nerd-fonts#option-3-install-script
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh)"
+}
+
+: "install fzf" && {
+  if ! command_exists fzf; then
+    # Doc: https://github.com/junegunn/fzf
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+  fi
 }
 
 : "install Docker" && {
@@ -150,6 +166,18 @@ function already() {
     echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
     sudo apt-get update
     sudo apt-get install -y google-chrome-stable
+  fi
+}
+
+: "install ccls" && {
+  if ! command_exists ccls; then
+    # https://github.com/MaskRay/ccls/wiki/Build
+    git clone --depth=1 --recursive https://github.com/MaskRay/ccls
+    cd ccls
+    wget -c http://releases.llvm.org/8.0.0/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    tar xf clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
+    cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PWD/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04
+    cmake --build Release
   fi
 }
 
@@ -241,6 +269,7 @@ function already() {
   : "install cargo packages" && {
     if command_exists cargo; then
       already 'cargo'
+      cargo install --locked bat # https://github.com/sharkdp/bat#from-source
       cargo install cargo-check
       cargo install cargo-raze
       cargo install cargo-vendor
