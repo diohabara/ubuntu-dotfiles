@@ -69,9 +69,6 @@ function already() {
                     gzip \
                     ibus-mozc \
                     jq \
-                    libssl1.0-dev \
-                    nodejs-dev \
-                    nodejs \
                     libfontconfig1-dev \
                     libfreetype6-dev \
                     libgraphite2-dev \
@@ -82,7 +79,6 @@ function already() {
                     lsb-release \
                     neofetch \
                     neovim \
-                    node-gyp \
                     npm \
                     pkg-config \
                     python3 \
@@ -319,13 +315,6 @@ function already() {
       curl -fsSL https://starship.rs/install.sh | bash
     fi
   }
-}
-
-: "install npm packages" && {
-  if command_exists npm; then
-    sudo npm i -g bash-language-server
-    sudo npm install -g pyright
-  fi
 }
 
 echo "Complete installation!"
