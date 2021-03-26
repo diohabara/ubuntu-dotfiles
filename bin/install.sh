@@ -74,7 +74,6 @@ function already() {
                     llvm \
                     lsb-release \
                     neofetch \
-                    neovim \
                     pkg-config \
                     python3 \
                     rlwrap \
@@ -83,6 +82,7 @@ function already() {
                     tmux \
                     unzip \
                     wget \
+                    xclip \
                     zlib1g-dev \
                     zsh
 }
