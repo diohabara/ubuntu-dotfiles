@@ -41,8 +41,7 @@ function already() {
 }
 
 : "uninstall packages by apt" && {
-  sudo apt purge -y --autoremove \
-                              nano
+  sudo apt purge -y --autoremove
 }
 
 : "add packages via ppa" && {
