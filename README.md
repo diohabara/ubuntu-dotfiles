@@ -17,3 +17,12 @@ sudo apt install -y curl
 ```sh
 bash -c "$(curl -fsSL raw.github.com/diohabara/ubuntu-dotfiles/master/bin/setup.sh)"
 ```
+
+## Setup
+
+- connect GitHub via SSH
+  - First follow this link <https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>.
+  - After finishing the instructions, execute this command.
+  ```sh
+  git remote set-url origin git@github.com:diohabara/mac-dotfiles.git
+  ```
