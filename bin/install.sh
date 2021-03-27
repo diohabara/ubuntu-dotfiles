@@ -11,8 +11,9 @@ XDG_DATA_HOME="${HOME}/.share"
 
 # data direcotory for zsh
 ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-
 ZSH_FUNCCOMP_DIR="${ZDOTDIR}/func_comp"
+
+# misc
 GHQ_ROOT="${HOME}/repo"
 REPO_ROOT="${GHQ_ROOT}/github.com/diohabara/ubuntu-dotfiles"
 DOTFILES_HOME="${REPO_ROOT}/dotfiles"
@@ -44,6 +45,10 @@ function already() {
                               nano
 }
 
+: "add packages via ppa" && {
+  sudo add-apt-repository ppa:kelleyk/emacs
+}
+
 : "install packages by apt" && {
   echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list # https://askubuntu.com/questions/462094/unable-to-install-libssl1-0-0i386-due-to-unmet-dependencies/462471#462471
   sudo apt update
@@ -56,13 +61,13 @@ function already() {
                     clang-format \
                     cmake \
                     curl \
-                    emacs \
                     ffmpeg \
                     firefox \
                     fonts-noto-cjk \
                     gnupg \
                     grep \
                     gzip \
+                    emacs27 \
                     ibus-mozc \
                     jq \
                     libfontconfig1-dev \
@@ -88,8 +93,6 @@ function already() {
 }
 
 : "install fonts" && {
-  # Doc: https://github.com/JetBrains/JetBrainsMono
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
   # Doc: https://github.com/ryanoasis/nerd-fonts#option-3-install-script
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh)"
 }

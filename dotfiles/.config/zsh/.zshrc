@@ -1,6 +1,3 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
 # XDG Base Directory Specification
 XDG_CONFIG_HOME="${HOME}/.config"
 XDG_CACHE_HOME="${HOME}/.cache"
