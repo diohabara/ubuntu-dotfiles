@@ -45,6 +45,7 @@ function already() {
 }
 
 : "add packages via ppa" && {
+  # Doc: https://ubuntuhandbook.org/index.php/2020/09/install-emacs-27-1-ppa-ubuntu-20-04/
   sudo add-apt-repository ppa:kelleyk/emacs
 }
 
@@ -101,6 +102,7 @@ function already() {
     # Doc: https://github.com/junegunn/fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
+    rm -rf ~/.fzf
   fi
 }
 
