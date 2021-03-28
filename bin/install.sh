@@ -46,7 +46,7 @@ function already() {
 
 : "add packages via ppa" && {
   # Doc: https://ubuntuhandbook.org/index.php/2020/09/install-emacs-27-1-ppa-ubuntu-20-04/
-  sudo add-apt-repository ppa:kelleyk/emacs
+  # sudo add-apt-repository ppa:kelleyk/emacs
 }
 
 : "install packages by apt" && {
@@ -62,7 +62,7 @@ function already() {
                     clang-format \
                     cmake \
                     curl \
-                    emacs27 \
+                    emacs \
                     ffmpeg \
                     firefox \
                     fonts-noto-cjk \
