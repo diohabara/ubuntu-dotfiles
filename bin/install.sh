@@ -58,6 +58,7 @@ function already() {
                     bash \
                     build-essential \
                     ca-certificates \
+                    ccls \
                     clang-format \
                     cmake \
                     curl \
@@ -144,19 +145,6 @@ function already() {
     sudo apt install apt-transport-https
     sudo apt update
     sudo apt install -y code # or code-insiders
-  fi
-}
-
-: "install ccls" && {
-  if ! command_exists ccls; then
-    # https://github.com/MaskRay/ccls/wiki/Build
-    git clone --depth=1 --recursive https://github.com/MaskRay/ccls
-    cd ccls
-    wget -c http://releases.llvm.org/8.0.0/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-    tar xf clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz
-    cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=$PWD/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04
-    sudo cmake --build Release --target install
-    rm -rf ccls
   fi
 }
 
