@@ -97,11 +97,6 @@ function already() {
 }
 
 : "install fonts" && {
-  # Doc: https://github.com/ryanoasis/nerd-fonts#option-3-install-script
-  git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ~/nerd-fonts
-  ~/nerd-fonts/install.sh
-  rm -rf ~/nerd-fonts
-  
   # Doc: https://github.com/JetBrains/JetBrainsMono
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 }
