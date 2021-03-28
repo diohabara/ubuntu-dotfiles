@@ -4,7 +4,8 @@ XDG_CACHE_HOME="${HOME}/.cache"
 XDG_DATA_HOME="${HOME}/.share"
 
 # Autocompletion
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit -u
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 eval "$(gh completion -s zsh)"
 
@@ -66,6 +67,3 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:/usr/local/texlive/2020/bin/x86_64-darwin/"
 export PATH="$PATH:/Library/TeX/texbin/"
 
-## Google Cloud SDK
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
