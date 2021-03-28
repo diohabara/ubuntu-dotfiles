@@ -1,4 +1,4 @@
-# Alias
+#!/usr/bin/env zsh
 ## for security
 alias cp='cp -i'
 alias mv='mv -i'
