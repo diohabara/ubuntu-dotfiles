@@ -50,20 +50,7 @@ source "${HOME}/.poetry/env"
 export PATH="${HOME}/.cargo/bin:${PATH}"
 export PKG_CONFIG_PATH="${HOME}/bin/convert"
 
-## Haskell
-export PATH="${HOME}/.cabal/bin:${HOME}/.ghcup/bin:${PATH}"
-[ -f "${HOME}/.ghcup/env" ] && source "${HOME}/.ghcup/env" # ghcup-env
-
-## Node.js
-### nvm
-export NVM_DIR="${HOME}/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completio
-
 ## Go
+export GOPATH=$HOME/go # https://github.com/golang/go/wiki/SettingGOPATH
 export PATH="${PATH}:/usr/local/go/bin"
-
-## LaTeX
-export PATH="${PATH}:/usr/local/texlive/2020/bin/x86_64-darwin/"
-export PATH="${PATH}:/Library/TeX/texbin/"
 
