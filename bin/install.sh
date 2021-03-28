@@ -62,6 +62,7 @@ function already() {
                     clang-format \
                     cmake \
                     curl \
+                    emacs27 \
                     ffmpeg \
                     firefox \
                     fonts-noto-cjk \
@@ -69,7 +70,6 @@ function already() {
                     gnupg \
                     grep \
                     gzip \
-                    emacs27 \
                     ibus-mozc \
                     jq \
                     libfontconfig1-dev \
@@ -77,6 +77,7 @@ function already() {
                     libgraphite2-dev \
                     libharfbuzz-dev \
                     libssl-dev \
+                    libtool \
                     libxcb-xfixes0-dev \
                     llvm \
                     lsb-release \
