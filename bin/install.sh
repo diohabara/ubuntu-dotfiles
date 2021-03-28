@@ -44,10 +44,10 @@ function already() {
   sudo apt purge -y --autoremove
 }
 
-: "add packages via ppa" && {
+#: "add packages via ppa" && {
   # Doc: https://ubuntuhandbook.org/index.php/2020/09/install-emacs-27-1-ppa-ubuntu-20-04/
   # sudo add-apt-repository ppa:kelleyk/emacs
-}
+#}
 
 : "install packages by apt" && {
   echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list # https://askubuntu.com/questions/462094/unable-to-install-libssl1-0-0i386-due-to-unmet-dependencies/462471#462471
