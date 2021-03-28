@@ -16,11 +16,15 @@
 (global-whitespace-mode +1)
 (setq byte-compile-warnings '(cl-functions))
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 22)
-      doom-unicode-font (font-spec :family "JetBrains Mono" :size 22)
+(setq doom-font (font-spec :family "JetBrains Mono" :size 18)
       doom-big-font (font-spec :family "JetBrains Mono" :size 22)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 22)
-      doom-serif-font (font-spec :family "JetBrains Mono" :size 22 :eight 'light))
+      doom-variable-pitch-font (font-spec :family "Ubuntu" :size 18))
+(after! doom-themes
+  (setq  doom-themes-enable-bold t
+         doom-themes-enable-italic t))
+(custom-set-face!
+ '(font-lock-comment-face :slant italic)
+ '(font-lock-keyword-face :slant italic))
 
 (after! org
   (setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
