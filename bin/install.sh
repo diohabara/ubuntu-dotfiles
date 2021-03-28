@@ -151,14 +151,14 @@ function already() {
   fi
 }
 
-"install Doom Emacs" && {
+: "install Doom Emacs" && {
   if ! command_exists bin/doom; then
     git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
     ~/.emacs.d/bin/doom install
   fi
 }
 
-"install go packages" && {
+: "install go packages" && {
   if ! command_exists go; then
     # Doc: https://github.com/golang/go/wiki/Ubuntu
     curl -LO "https://get.golang.org/$(uname)/go_installer" && chmod +x go_installer && ./go_installer && rm go_installer
