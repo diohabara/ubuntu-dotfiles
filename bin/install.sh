@@ -80,6 +80,7 @@ function already() {
                     llvm \
                     lsb-release \
                     neofetch \
+                    neovim \
                     pkg-config \
                     python3 \
                     python3-pip \
