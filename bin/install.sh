@@ -65,6 +65,7 @@ function already() {
                     ffmpeg \
                     firefox \
                     fonts-noto-cjk \
+                    fzf \
                     gnupg \
                     grep \
                     gzip \
@@ -100,15 +101,6 @@ function already() {
   git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ~/nerd-fonts
   ~/nerd-fonts/install.sh
   rm -rf ~/nerd-fonts
-}
-
-: "install fzf" && {
-  if ! command_exists fzf || [ -d "${HOME}/.fzf" ]; then
-    # Doc: https://github.com/junegunn/fzf
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-    rm -rf ~/.fzf
-  fi
 }
 
 : "install Docker" && {
