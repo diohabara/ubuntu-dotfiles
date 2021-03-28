@@ -82,6 +82,7 @@ function already() {
                     neofetch \
                     pkg-config \
                     python3 \
+                    python3-pip \
                     rlwrap \
                     shellcheck \
                     software-properties-common \
