@@ -54,53 +54,57 @@ function already() {
   sudo apt update
   sudo apt upgrade -y
   sudo apt install -y \
-                    apt-transport-https \
-                    bash \
-                    build-essential \
-                    ca-certificates \
-                    ccls \
-                    clang-format \
-                    cmake \
-                    curl \
-                    emacs \
-                    ffmpeg \
-                    firefox \
-                    fonts-noto-cjk \
-                    fonts-powerline \
-                    fzf \
-                    gnupg \
-                    grep \
-                    gzip \
-                    ibus-mozc \
-                    jq \
-                    libfontconfig1-dev \
-                    libfreetype6-dev \
-                    libgraphite2-dev \
-                    libharfbuzz-dev \
-                    libssl-dev \
-                    libtool \
-                    libxcb-xfixes0-dev \
-                    llvm \
-                    lsb-release \
-                    neofetch \
-                    neovim \
-                    pkg-config \
-                    python3 \
-                    python3-pip \
-                    rlwrap \
-                    shellcheck \
-                    software-properties-common \
-                    tmux \
-                    unzip \
-                    wget \
-                    xclip \
-                    zlib1g-dev \
-                    zsh
+    apt-transport-https \
+    bash \
+    build-essential \
+    ca-certificates \
+    ccls \
+    clang-format \
+    cmake \
+    curl \
+    emacs \
+    ffmpeg \
+    firefox \
+    fzf \
+    gnupg \
+    grep \
+    gzip \
+    ibus-mozc \
+    jq \
+    libfontconfig1-dev \
+    libfreetype6-dev \
+    libgraphite2-dev \
+    libharfbuzz-dev \
+    libssl-dev \
+    libtool \
+    libxcb-xfixes0-dev \
+    llvm \
+    lsb-release \
+    neofetch \
+    neovim \
+    pkg-config \
+    python3 \
+    python3-pip \
+    rlwrap \
+    shellcheck \
+    software-properties-common \
+    tmux \
+    unzip \
+    wget \
+    xclip \
+    zlib1g-dev \
+    zsh
 }
 
 : "install fonts" && {
   # Doc: https://github.com/JetBrains/JetBrainsMono
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+  sudo apt update
+  sudo apt upgrade -y
+  sudo apt install -y \
+    fonts-noto-cjk \
+    fonts-powerline \
+    fonts-dejavu-core \
 }
 
 : "install Docker" && {
