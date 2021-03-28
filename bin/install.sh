@@ -96,7 +96,9 @@ function already() {
 
 : "install fonts" && {
   # Doc: https://github.com/ryanoasis/nerd-fonts#option-3-install-script
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh)"
+  git clone git@github.com:ryanoasis/nerd-fonts.git
+  ./install.sh
+  rm -rf nerd-fonts
 }
 
 : "install fzf" && {
