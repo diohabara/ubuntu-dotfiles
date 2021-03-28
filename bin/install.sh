@@ -93,7 +93,8 @@ function already() {
     wget \
     xclip \
     zlib1g-dev \
-    zsh
+    zsh \
+
 }
 
 : "install fonts" && {
@@ -102,9 +103,11 @@ function already() {
   sudo apt update
   sudo apt upgrade -y
   sudo apt install -y \
+    fonts-dejavu-core \
+    fonts-firacode \
     fonts-noto-cjk \
     fonts-powerline \
-    fonts-dejavu-core \
+
 }
 
 : "install Docker" && {
