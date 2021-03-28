@@ -16,11 +16,11 @@
 (global-whitespace-mode +1)
 (setq byte-compile-warnings '(cl-functions))
 
-(setq doom-font (font-spec :family "JetBrains Mono" :size 18)
-      doom-unicode-font (font-spec :family "JetBrains Mono" :size 18)
-      doom-big-font (font-spec :family "JetBrains Mono" :size 18)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 18)
-      doom-serif-font (font-spec :family "JetBrains Mono" :weight 'light))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 22)
+      doom-unicode-font (font-spec :family "JetBrains Mono" :size 22)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 22)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 22)
+      doom-serif-font (font-spec :family "JetBrains Mono" :size 22 :eight 'light))
 
 (after! org
   (setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
