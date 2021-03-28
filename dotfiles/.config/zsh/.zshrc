@@ -31,6 +31,8 @@ source ${XDG_CONFIG_HOME}/zsh/".alias"
 # PATH
 export PATH="/usr/local/bin:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
+
+# Doom Emacs
 export PATH="${HOME}/.emacs.d/bin:${PATH}"
 
 ## LLVM
@@ -52,6 +54,5 @@ export PKG_CONFIG_PATH="${HOME}/bin/convert"
 
 ## Go
 export GOPATH="${HOME}/go" # https://github.com/golang/go/wiki/SettingGOPATH
-export PATH="${PATH}:/usr/local/go/bin"
 export PATH="${PATH}:${HOME}/go/bin"
 

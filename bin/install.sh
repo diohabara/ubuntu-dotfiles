@@ -162,9 +162,6 @@ function already() {
   if ! command_exists go; then
     # Doc: https://github.com/golang/go/wiki/Ubuntu
     curl -LO "https://get.golang.org/$(uname)/go_installer" && chmod +x go_installer && ./go_installer && rm go_installer
-    export GOROOT=/usr/lib/go
-    export GOPATH=$HOME/go
-    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
   fi
   if command_exists go; then
     go get -u github.com/bazelbuild/bazelisk # Doc: https://docs.bazel.build/versions/master/install-ubuntu.html
@@ -189,7 +186,6 @@ function already() {
       rm -rf ~/.pyenv
       curl https://pyenv.run | bash
       # Doc: https://github.com/pyenv/pyenv
-      export PATH="/home/jio/.pyenv/bin:$PATH"
     fi
   }
 
