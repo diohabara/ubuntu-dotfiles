@@ -42,7 +42,7 @@ Adding paths for LaTeX
       doom-unicode-font (font-spec :family "JetBrains Mono" :size 22)
       doom-big-font (font-spec :family "JetBrains Mono" :size 22)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 22)
-      doom-serif-font (font-spec :family "JetBrains Mono" :size 22 :eight 'light))
+      doom-serif-font (font-spec :family "JetBrains Mono" :size 22 :weight 'light))
 #+end_src
 
 * ORG MODE
