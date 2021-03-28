@@ -66,6 +66,7 @@ function already() {
                     ffmpeg \
                     firefox \
                     fonts-noto-cjk \
+                    fonts-powerline \
                     fzf \
                     gnupg \
                     grep \
