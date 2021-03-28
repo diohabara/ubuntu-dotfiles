@@ -18,7 +18,7 @@
 
 (setq doom-font (font-spec :family "JetBrains Mono" :size 18)
       doom-big-font (font-spec :family "JetBrains Mono" :size 24)
-      doom-variable-pitch-font (font-spec :family "Ubuntu" :size 18)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 18)
       doom-unicode-font (font-spec :family "JetBrains Mono")
       doom-serif-font (font-spec :family "JetBrains Mono" :weight 'light))
 (after! doom-themes
@@ -27,9 +27,6 @@
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
-(propertize (all-the-icons-octicon "package")
-            'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
-            'display '(raise -0.1))
 
 (after! org
   (setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))

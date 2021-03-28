@@ -27,3 +27,8 @@ bash -c "$(curl -fsSL raw.github.com/diohabara/ubuntu-dotfiles/master/bin/setup.
   ```sh
   git remote set-url origin git@github.com:diohabara/ubuntu-dotfiles.git
   ```
+
+## FYI
+
+- If you having difficulty Doom Emacs font rendering, please refer to [this issue](https://github.com/hlissner/doom-emacs/issues/116).
+
