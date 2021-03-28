@@ -164,8 +164,8 @@ function already() {
     curl -LO "https://get.golang.org/$(uname)/go_installer" && chmod +x go_installer && ./go_installer && rm go_installer
   fi
   if command_exists go; then
-    go get -u github.com/bazelbuild/bazelisk # Doc: https://docs.bazel.build/versions/master/install-ubuntu.html
-    go get -u github.com/bazelbuild/buildtools/buildifier https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
+    go get -u github.com/bazelbuild/bazelisk # https://docs.bazel.build/versions/master/install-ubuntu.html
+    go get -u github.com/bazelbuild/buildtools/buildifier # https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
     go get -u github.com/cweill/gotests/...
     go get -u github.com/fatih/gomodifytags
     go get -u github.com/golangci/golangci-lint/cmd/golangci-lint # https://golangci-lint.run/usage/install/
