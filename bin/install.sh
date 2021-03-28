@@ -144,6 +144,14 @@ function already() {
   fi
 }
 
+: "install Google Chrome" && {
+  if ! comamnd_exists google-chrome; then
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo apt install ./google-chrome-stable_current_amd64.deb
+    rm -rf google-chrome-stable_current_amd64.deb
+  fi
+}
+
 : "install Doom Emacs" && {
   if ! command_exists bin/doom; then
     git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
