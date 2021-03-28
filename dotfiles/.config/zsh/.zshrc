@@ -55,4 +55,6 @@ export PKG_CONFIG_PATH="${HOME}/bin/convert"
 ## Go
 export GOPATH="${HOME}/go" # https://github.com/golang/go/wiki/SettingGOPATH
 export PATH="${PATH}:${HOME}/go/bin"
+export PATH="${PATH}:${HOME}/.go/bin"
+
 
