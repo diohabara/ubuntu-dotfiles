@@ -75,6 +75,7 @@ function already() {
     libfreetype6-dev \
     libgraphite2-dev \
     libharfbuzz-dev \
+    libinfo-dev \
     libssl-dev \
     libtool \
     libxcb-xfixes0-dev \
