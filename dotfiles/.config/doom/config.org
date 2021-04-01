@@ -15,13 +15,8 @@
 #+end_src
 
 * PATH
-Adding paths for LaTeX
 
 #+begin_src emacs-lisp
-(setenv "PATH" (concat "/Library/TeX/texbin" (getenv "PATH")))
-(setq exec-path (append '("/Library/TeX/texbin") exec-path))
-(add-to-list 'exec-path (expand-file-name "~/Library/Application\ Support/Code/User/globalStorage/matklad.rust-analyzer"))
-(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
 #+end_src
 
 * DOOM THEME

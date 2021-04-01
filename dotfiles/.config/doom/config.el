@@ -5,10 +5,7 @@
 (setq user-full-name "Kadoi Takemaru"
       user-mail-address "diohabara@gmail.com")
 
-(setenv "PATH" (concat "/Library/TeX/texbin" (getenv "PATH")))
-(setq exec-path (append '("/Library/TeX/texbin") exec-path))
-(add-to-list 'exec-path (expand-file-name "~/Library/Application\ Support/Code/User/globalStorage/matklad.rust-analyzer"))
-(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+
 
 (setq doom-theme 'doom-one)
 
