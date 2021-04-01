@@ -29,7 +29,7 @@
   '(font-lock-keyword-face :slant italic))
 
 (after! org
-  (setq org-superstar-headline-bullets-list '("" "" "" "" "" "" "" "" "" ""))
+  (setq org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿"))
   )
 
 (when (require 'org-tree-slide nil t)
