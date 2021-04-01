@@ -16,9 +16,6 @@
 
 * PATH
 
-#+begin_src emacs-lisp
-#+end_src
-
 * DOOM THEME
 #+begin_src emacs-lisp
 (setq doom-theme 'doom-one)
@@ -110,13 +107,8 @@
 + ref
   - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/python
 ** Common Lisp
-First thing you need to do is type ~M-x slime~. You will start ~slime~ process, and you can interactively evaluate expressions and files.
-- ~C-c C-C~: evaluate an expression
-- ~C-c C-k~: evaluate a file
-- ~C-c C-z~: display a REPL buffer
-#+begin_src emacs-lisp
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
-#+end_src
++ ref
+  - https://lisp-lang.org/learn/getting-started/
 ** Rust
 + ref
   - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/rust
