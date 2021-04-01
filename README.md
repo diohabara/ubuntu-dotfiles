@@ -7,9 +7,7 @@ for Ubuntu.
 ### If you don't have `curl`
 
 ```sh
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y curl
+sudo apt update && sudo apt upgrade -y && sudo apt install -y curl
 ```
 
 ### If you have it
