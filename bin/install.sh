@@ -264,6 +264,7 @@ function already() {
       cargo install procs
       cargo install ripgrep
       cargo install sd
+      cargo install starship
       cargo install tealdeer
       cargo install tectonic
       cargo install tokei
@@ -299,13 +300,6 @@ function already() {
       # remote temporary dir
       cd ..
       rm -rf alacritty
-    fi
-  }
-
-  : "install starship" && {
-    if ! command_exists starship; then
-      # Doc: https://starship.rs/
-      curl -fsSL https://starship.rs/install.sh | bash
     fi
   }
 }

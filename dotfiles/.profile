@@ -13,3 +13,5 @@ if [ -d "/tools/Xilinx/Vivado/2020.2/bin" ]; then
   export PATH="${PATH}:/tools/Xilinx/Vivado/2020.2/bin"
   sudo ln -s /lib/x86_64-linux-gnu/libtinfo.so.6 /lib/x86_64-linux-gnu/libtinfo.so.5
 fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
