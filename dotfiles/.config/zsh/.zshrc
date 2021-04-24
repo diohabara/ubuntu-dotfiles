@@ -9,10 +9,6 @@ compinit -u
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 eval "$(gh completion -s zsh)"
 
-# Shell prompt
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.config/starship.toml
-
 # history
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
@@ -57,4 +53,8 @@ export GOPATH="${HOME}/go" # https://github.com/golang/go/wiki/SettingGOPATH
 export PATH="${PATH}:${HOME}/go/bin"
 export PATH="${PATH}:${HOME}/.go/bin"
 
+# Shell prompt
+eval "$(starship init zsh)"
+source <("/home/jio/.cargo/bin/starship" init zsh --print-full-init)
+export STARSHIP_CONFIG=~/.config/starship.toml
 
