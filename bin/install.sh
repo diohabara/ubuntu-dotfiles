@@ -170,7 +170,7 @@ function already() {
 : "install go packages" && {
   if ! command_exists go; then
     # Doc: https://github.com/golang/go/wiki/Ubuntu
-    curl -LO "https://get.golang.org/$(uname)/go_installer" && chmod +x go_installer && ./go_installer && rm go_installer
+    curl -LO "https://get.golang.org/$(uname)/go_installer" && chmod +x go_installer && ./go_installer && rm -rf go_installer
   fi
   if command_exists go; then
     go get -u github.com/bazelbuild/bazelisk # https://docs.bazel.build/versions/master/install-ubuntu.html

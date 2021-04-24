@@ -14,4 +14,9 @@ if [ -d "/tools/Xilinx/Vivado/2020.2/bin" ]; then
   sudo ln -s /lib/x86_64-linux-gnu/libtinfo.so.6 /lib/x86_64-linux-gnu/libtinfo.so.5
 fi
 
+# Python
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# Golang
+export PATH="${PATH}:${HOME}/go/bin"
+export PATH="${PATH}:${HOME}/.go/bin"
