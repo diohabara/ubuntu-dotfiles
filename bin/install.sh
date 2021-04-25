@@ -75,8 +75,8 @@ function already() {
     libfreetype6-dev \
     libgraphite2-dev \
     libharfbuzz-dev \
-    libtinfo-dev \
     libssl-dev \
+    libtinfo-dev \
     libtool \
     libxcb-xfixes0-dev \
     llvm \
@@ -89,6 +89,7 @@ function already() {
     rlwrap \
     shellcheck \
     software-properties-common \
+    tcl \
     tmux \
     unzip \
     wget \
