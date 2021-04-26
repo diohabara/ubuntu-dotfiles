@@ -13,7 +13,7 @@ alias ct='cargo test'
 alias cr='cargo run'
 alias e='emacs -nw'
 ### ls
-if type 'exa' > /dev/null 2>&1; then
+if command -v exa &> /dev/null; then
   alias l='exa --git'
   alias la='exa -a --git'
   alias ll='exa -lab --git'
