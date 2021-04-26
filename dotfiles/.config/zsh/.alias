@@ -27,12 +27,9 @@ fi
 alias gr='cd $(ghq root)'
 alias gf='cd $(ghq list -p | fzf)'
 alias gg="ghq get $*"
-### fzf
-alias fh='history -E 1 | fzf'
-## git
+### git
 alias gs='git status'
 alias gd='git diff'
 alias gp='git push origin HEAD'
 alias gc='git commit'
 ### misc
-alias typora='open -a Typora'
