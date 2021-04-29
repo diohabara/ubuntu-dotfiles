@@ -51,7 +51,7 @@ function already() {
 
 : "install packages by apt" && {
   echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list # https://askubuntu.com/questions/462094/unable-to-install-libssl1-0-0i386-due-to-unmet-dependencies/462471#462471
-  sudo apt update -y \
+  sudo apt update
   sudo apt upgrade -y
   sudo apt install -y \
     apt-transport-https \
@@ -105,7 +105,7 @@ function already() {
 : "install fonts" && {
   # Doc: https://github.com/JetBrains/JetBrainsMono
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-  sudo apt update -y \
+  sudo apt update
   sudo apt upgrade -y
   sudo apt install -y \
     fonts-dejavu-core \
@@ -124,7 +124,7 @@ function already() {
 : "install Docker" && {
   if ! command_exists docker; then
     # Doc: https://docs.docker.com/engine/install/ubuntu/
-    sudo apt update -y
+    sudo apt update 
     sudo apt-get install -y \
                           apt-transport-https \
                           ca-certificates \
@@ -135,7 +135,7 @@ function already() {
     echo \
     "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt update -y
+    sudo apt update
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
   fi
 }
@@ -145,7 +145,7 @@ function already() {
     # Doc: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
     sudo apt-add-repository https://cli.github.com/packages
-    sudo apt update -y
+    sudo apt update
     sudo apt install -y gh
   fi
 }
