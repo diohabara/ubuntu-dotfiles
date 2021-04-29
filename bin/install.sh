@@ -121,10 +121,18 @@ function already() {
   fi
 }
 
+
+: "install gibo" && {
+  if ! command_exists gibo; then
+    curl -L https://raw.github.com/simonwhitaker/gibo/master/gibo \
+    -so ~/bin/gibo && chmod +x ~/bin/gibo && gibo update
+  fi
+}
+
 : "install Docker" && {
   if ! command_exists docker; then
     # Doc: https://docs.docker.com/engine/install/ubuntu/
-    sudo apt update 
+    sudo apt update
     sudo apt-get install -y \
                           apt-transport-https \
                           ca-certificates \
