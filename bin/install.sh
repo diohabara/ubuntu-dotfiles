@@ -305,7 +305,7 @@ function already() {
 
 : "install npm packages" && {
   if command_exists npm; then
-    npm i -g bash-language-server
+    sudo npm i -g bash-language-server
   fi
 }
 
