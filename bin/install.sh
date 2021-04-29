@@ -51,7 +51,7 @@ function already() {
 
 : "install packages by apt" && {
   echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list # https://askubuntu.com/questions/462094/unable-to-install-libssl1-0-0i386-due-to-unmet-dependencies/462471#462471
-  sudo apt update
+  sudo apt update -y \
   sudo apt upgrade -y
   sudo apt install -y \
     apt-transport-https \
@@ -69,6 +69,7 @@ function already() {
     gnupg \
     grep \
     gzip \
+    gdb \
     ibus-mozc \
     jq \
     libfontconfig1-dev \
@@ -83,6 +84,8 @@ function already() {
     lsb-release \
     neofetch \
     neovim \
+    nodejs \
+    npm \
     pkg-config \
     python3 \
     python3-pip \
@@ -102,7 +105,7 @@ function already() {
 : "install fonts" && {
   # Doc: https://github.com/JetBrains/JetBrainsMono
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-  sudo apt update
+  sudo apt update -y \
   sudo apt upgrade -y
   sudo apt install -y \
     fonts-dejavu-core \
@@ -112,10 +115,16 @@ function already() {
 
 }
 
+: "install nix" && {
+  if ! command_exists nix; then
+    curl -L https://nixos.org/nix/install | sh
+  fi
+}
+
 : "install Docker" && {
   if ! command_exists docker; then
     # Doc: https://docs.docker.com/engine/install/ubuntu/
-    sudo apt update
+    sudo apt update -y
     sudo apt-get install -y \
                           apt-transport-https \
                           ca-certificates \
@@ -126,7 +135,7 @@ function already() {
     echo \
     "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt update
+    sudo apt update -y
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
   fi
 }
@@ -136,7 +145,7 @@ function already() {
     # Doc: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
     sudo apt-add-repository https://cli.github.com/packages
-    sudo apt update
+    sudo apt update -y
     sudo apt install -y gh
   fi
 }
@@ -144,7 +153,7 @@ function already() {
 : "install Google Chrome" && {
   if ! command_exists google-chrome; then
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo apt install ./google-chrome-stable_current_amd64.deb
+    sudo apt install -y ./google-chrome-stable_current_amd64.deb
     rm -rf google-chrome-stable_current_amd64.deb
   fi
 }
@@ -292,6 +301,12 @@ function already() {
       rm -rf alacritty
     fi
   }
+}
+
+: "install npm packages" && {
+  if command_exists npm; then
+    npm i -g bash-language-server
+  fi
 }
 
 echo "Complete installation!"
