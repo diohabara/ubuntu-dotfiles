@@ -61,3 +61,7 @@ export STARSHIP_CONFIG=~/.config/starship.toml
 ## Toolchain
 # Doc: https://github.com/riscv/riscv-gnu-toolchain
 export PATH="${PATH}:${HOME}/opt/riscv/bin"
+
+## WSL2
+# Doc: https://github.com/microsoft/WSL/issues/4106#issuecomment-501885675
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
