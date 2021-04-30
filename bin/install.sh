@@ -173,25 +173,27 @@ function already() {
   fi
 }
 
-: "install go packages" && {
+: "install go" && {
   if ! command_exists go; then
     # Doc: https://github.com/golang/go/wiki/Ubuntu
     curl -LO "https://get.golang.org/$(uname)/go_installer" && chmod +x go_installer && ./go_installer && rm -rf go_installer
   fi
-  if command_exists go; then
-    go get -u github.com/bazelbuild/bazelisk # https://docs.bazel.build/versions/master/install-ubuntu.html
-    go get -u github.com/bazelbuild/buildtools/buildifier # https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
-    go get -u github.com/cweill/gotests/...
-    go get -u github.com/fatih/gomodifytags
-    go get -u github.com/golangci/golangci-lint/cmd/golangci-lint # https://golangci-lint.run/usage/install/
-    go get -u github.com/motemen/gore/cmd/gore
-    go get -u github.com/stamblerre/gocode
-    go get -u github.com/x-motemen/ghq # https://github.com/x-motemen/ghq
-    go get -u golang.org/x/tools/cmd/godoc
-    go get -u golang.org/x/tools/cmd/goimports
-    go get -u golang.org/x/tools/cmd/gorename
-    go get -u golang.org/x/tools/cmd/guru
-  fi
+  : "install go packages" && {
+    if command_exists go; then
+      go get -u github.com/bazelbuild/bazelisk # https://docs.bazel.build/versions/master/install-ubuntu.html
+      go get -u github.com/bazelbuild/buildtools/buildifier # https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md
+      go get -u github.com/cweill/gotests/...
+      go get -u github.com/fatih/gomodifytags
+      go get -u github.com/golangci/golangci-lint/cmd/golangci-lint # https://golangci-lint.run/usage/install/
+      go get -u github.com/motemen/gore/cmd/gore
+      go get -u github.com/stamblerre/gocode
+      go get -u github.com/x-motemen/ghq # https://github.com/x-motemen/ghq
+      go get -u golang.org/x/tools/cmd/godoc
+      go get -u golang.org/x/tools/cmd/goimports
+      go get -u golang.org/x/tools/cmd/gorename
+      go get -u golang.org/x/tools/cmd/guru
+    fi
+  }
 }
 
 : "install python" && {
