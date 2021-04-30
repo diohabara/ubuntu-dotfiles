@@ -9,18 +9,6 @@ compinit -u
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 eval "$(gh completion -s zsh)"
 
-# history
-function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
-  CURSOR=$#BUFFER
-}
-zle -N select-history
-bindkey '^r' select-history
-export HISTFILE=${XDG_CONFIG_HOME}/zsh/.zsh_history # where to save
-export HISTSIZE=1000 # max size in memory
-export SAVEHIST=100000 # max size in .zsh_history
-setopt hist_ignore_dups # never save duplicates
-
 # divided files
 source ${XDG_CONFIG_HOME}/zsh/".alias"
 
