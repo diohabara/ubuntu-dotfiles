@@ -34,6 +34,8 @@
       roboto
       source-code-pro
       nerdfonts
+      powerline-fonts
+      dejavu_fonts
     ];
   };
 }

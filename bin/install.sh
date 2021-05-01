@@ -102,22 +102,11 @@ function already() {
 
 }
 
-: "install fonts" && {
-  # Doc: https://github.com/JetBrains/JetBrainsMono
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-  sudo apt update
-  sudo apt upgrade -y
-  sudo apt install -y \
-    fonts-dejavu-core \
-    fonts-firacode \
-    fonts-noto-cjk \
-    fonts-powerline \
-
-}
-
 : "install nix" && {
   if ! command_exists nix; then
+    # Doc: https://nixos.org/download.html
     curl -L https://nixos.org/nix/install | sh
+    . "/home/jio/.nix-profile/etc/profile.d/nix.sh"
   fi
   if command_exists nix; then
     nix-channel --update
