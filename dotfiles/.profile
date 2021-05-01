@@ -13,4 +13,7 @@ fi
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # Golang
+# https://golang.org/doc/install#install
+export PATH="${PATH}:${HOME}/go/bin"
+export PATH="${PATH}:${HOME}/.go/bin"
 export PATH="${PATH}:$(go env GOPATH)/bin"

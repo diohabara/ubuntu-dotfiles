@@ -37,8 +37,10 @@ export PATH="${HOME}/.cargo/bin:${PATH}"
 export PKG_CONFIG_PATH="${HOME}/bin/convert"
 
 ## Go
-export GOPATH="$(go env GOPATH)" # https://github.com/golang/go/wiki/SettingGOPATH
-export PATH="${PATH}:$(go env GOPATH)/bin"
+export PATH="${PATH}:${HOME}/go/bin"
+export PATH="${PATH}:${HOME}/.go/bin"
+# https://github.com/golang/go/wiki/SettingGOPATH
+export GOPATH="$(go env GOPATH)" 
 
 # Shell prompt
 eval "$(starship init zsh)"
