@@ -51,4 +51,3 @@ export PATH="${PATH}:/opt/riscv/bin"
 
 ## WSL2
 # Doc: https://github.com/microsoft/WSL/issues/4106#issuecomment-501885675
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
