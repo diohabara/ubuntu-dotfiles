@@ -120,7 +120,7 @@ function already() {
     curl -L https://nixos.org/nix/install | sh
   fi
   if command_exists nix; then
-    nix-channle --update
+    nix-channel --update
   fi
 
   : "install nixpkgs" && {
