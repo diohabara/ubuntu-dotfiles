@@ -1,0 +1,8 @@
+# ~/.config/starship.toml
+# Doc: https://starship.rs/config/#prompt
+# Inserts a blank line between shell prompts
+add_newline = true
+
+format = "$all"
+
+command_timeout = 1000 # default 500

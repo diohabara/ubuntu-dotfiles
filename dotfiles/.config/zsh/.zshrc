@@ -43,7 +43,7 @@ export PATH="${PATH}:$(go env GOPATH)/bin"
 # Shell prompt
 eval "$(starship init zsh)"
 source <("/home/jio/.cargo/bin/starship" init zsh --print-full-init)
-export STARSHIP_CONFIG=~/.config/starship.toml
+export STARSHIP_CONFIG="${HOME}/.config/.starship.toml"
 
 ## Toolchain
 # Doc: https://github.com/riscv/riscv-gnu-toolchain
