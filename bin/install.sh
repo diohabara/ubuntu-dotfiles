@@ -119,6 +119,18 @@ function already() {
   if ! command_exists nix; then
     curl -L https://nixos.org/nix/install | sh
   fi
+  if command_exists nix; then
+    nix-channle --update
+  fi
+
+  : "install nixpkgs" && {
+    if command_exists nix-env; then
+      echo "Installing packages by nix..."
+      # Doc: https://nixos.org/manual/nixpkgs/stable/#sec-declarative-package-management
+      nix-env -iA nixpkgs.myPackages
+      echo "Installed packages by nix!"
+    fi
+  }
 }
 
 
