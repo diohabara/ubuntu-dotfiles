@@ -72,8 +72,7 @@
 (use-package! wakatime-mode
   :ensure t
   :when (file-exists-p "~/.wakatime.cfg")
-  :init
-  (global-wakatime-mode))
+  :init (global-wakatime-mode))
 #+end_src
 
 * PROGRAMMING LANGUAGE

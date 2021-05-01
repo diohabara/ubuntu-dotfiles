@@ -24,7 +24,11 @@ bash -c "$(curl -fsSL raw.github.com/diohabara/ubuntu-dotfiles/master/bin/setup.
   - After finishing the instructions, execute this command.
   ```sh
   git remote set-url origin git@github.com:diohabara/ubuntu-dotfiles.git
-  ```
+
+## Manual install
+
+- [Micrsoft Edge](https://www.omgubuntu.co.uk/2021/01/how-to-install-edge-on-ubuntu-linux)
+- [Visual Studio Code](https://code.visualstudio.com/docs/setup/linux)
 
 ## FYI
 
