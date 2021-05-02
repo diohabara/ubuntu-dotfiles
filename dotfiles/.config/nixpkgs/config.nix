@@ -4,7 +4,7 @@
     with pkgs; rec {
       myPackages = pkgs.buildEnv {
         name = "my-packages";
-        paths = [ nixfmt typora ];
+        paths = [ nixfmt typora alacritty gibo ];
         extraOutputsToInstall = [ "man" "doc" "info" ];
       };
       fonts.fonts = with pkgs; [

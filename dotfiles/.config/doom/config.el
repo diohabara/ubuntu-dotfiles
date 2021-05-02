@@ -39,7 +39,8 @@
 (use-package! wakatime-mode
   :ensure t
   :when (file-exists-p "~/.wakatime.cfg")
-  :init (global-wakatime-mode))
+  :init (global-wakatime-mode)
+  :config (setq wakatime-cli-path "/home/jio/.local/bin/wakatime"))
 
 (after! ccls
   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
