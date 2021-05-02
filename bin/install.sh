@@ -64,7 +64,6 @@ function already() {
     curl \
     emacs \
     ffmpeg \
-    firefox \
     fzf \
     gnupg \
     grep \
@@ -278,38 +277,6 @@ function already() {
       cargo install tealdeer
       cargo install tectonic
       cargo install tokei
-    fi
-  }
-
-  : "install alacritty" && {
-    if ! command_exists alacritty; then
-      # Doc: https://github.com/alacritty/alacritty/blob/master/INSTALL.md#desktop-entry
-      # install required tools
-      sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
-
-      # download and build alacritty
-      git clone https://github.com/alacritty/alacritty.git
-      cd alacritty
-      rustup override set stable
-      rustup update stable
-      cargo build --release
-
-      # desktop entry
-      sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
-      sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-      sudo desktop-file-install extra/linux/Alacritty.desktop
-      sudo update-desktop-database
-
-      # manual page
-      sudo mkdir -p /usr/local/share/man/man1
-      gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
-
-      # use alacritty as default desktop terminal
-      gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/alacritty
-
-      # remote temporary dir
-      cd ..
-      rm -rf alacritty
     fi
   }
 }
