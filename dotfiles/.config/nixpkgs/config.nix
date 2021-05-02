@@ -9,6 +9,7 @@
           cargo
           docker
           emacs
+          fcitx-engines.mozc
           firefox
           gibo
           gitAndTools.gh
