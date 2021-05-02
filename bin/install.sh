@@ -105,7 +105,7 @@ function already() {
   if ! command_exists nix; then
     # Doc: https://nixos.org/download.html
     curl -L https://nixos.org/nix/install | sh
-    . "/home/jio/.nix-profile/etc/profile.d/nix.sh"
+    . "${HOME}/.nix-profile/etc/profile.d/nix.sh"
   fi
   if command_exists nix; then
     nix-channel --update
@@ -121,33 +121,6 @@ function already() {
   }
 }
 
-
-: "install gibo" && {
-  if ! command_exists gibo; then
-    curl -L https://raw.github.com/simonwhitaker/gibo/master/gibo \
-    -so ~/bin/gibo && chmod +x ~/bin/gibo && gibo update
-  fi
-}
-
-: "install Docker" && {
-  if ! command_exists docker; then
-    # Doc: https://docs.docker.com/engine/install/ubuntu/
-    sudo apt update
-    sudo apt-get install -y \
-                          apt-transport-https \
-                          ca-certificates \
-                          curl \
-                          gnupg \
-                          lsb-release
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-    echo \
-    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt update
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-  fi
-}
-
 : "install gh" && {
   if ! command_exists gh; then
     # Doc: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
@@ -155,14 +128,6 @@ function already() {
     sudo apt-add-repository https://cli.github.com/packages
     sudo apt update
     sudo apt install -y gh
-  fi
-}
-
-: "install Google Chrome" && {
-  if ! command_exists google-chrome; then
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo apt install -y ./google-chrome-stable_current_amd64.deb
-    rm -rf google-chrome-stable_current_amd64.deb
   fi
 }
 
@@ -174,10 +139,6 @@ function already() {
 }
 
 : "install go" && {
-  if ! command_exists go; then
-    # Doc: https://github.com/golang/go/wiki/Ubuntu
-    curl -LO "https://get.golang.org/$(uname)/go_installer" && chmod +x go_installer && ./go_installer && rm -rf go_installer
-  fi
   : "install go packages" && {
     if command_exists go; then
       go get -u github.com/bazelbuild/bazelisk # https://docs.bazel.build/versions/master/install-ubuntu.html
@@ -206,16 +167,6 @@ function already() {
     fi
   }
 
-  : "install poetry" && {
-    if ! command_exists poetry; then
-      # Doc: https://python-poetry.org/docs/
-      curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
-      installed 'poetry'
-    else
-      already 'poetry'
-    fi
-  }
-
   : "install via pip3" && {
     if command_exists pip3; then
       already 'pip3'
@@ -231,30 +182,25 @@ function already() {
 }
 
 : "install rust packages" && {
-  if ! command_exists rustup; then
-    installing 'Rust'
-    # Doc: https://www.rust-lang.org/tools/install
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-    source "$HOME/.cargo/env"
-    installed 'Rust'
-  fi
   : "install rustup components" && {
-    rustup toolchain install stable
-    rustup toolchain install nightly
-    rustup update
-    # Doc: https://rust-lang.github.io/rustup/installation/index.html#enable-tab-completion-for-bash-fish-zsh-or-powershell
-    rustup completions zsh > "${ZSH_FUNCCOMP_DIR}/_rustup"
-    # For rust-analyzer
-    # Doc: https://rust-analyzer.github.io/manual.html#installation
-    rustup component add rust-src
-    # Doc: https://github.com/hlissner/doom-emacs/blob/d62c82ddbe0c9fa603be24f5eb8e563d16f5e45f/modules/lang/rust/README.org
-    rustup component add rustfmt-preview
-    rustup component add clippy-preview
-    # For rls
-    # Doc: https://github.com/rust-lang/rls
-    rustup component add rls
-    rustup component add rust-analysis
-    rustup component add rust-src
+    if command_exist rustup; then
+      rustup toolchain install stable
+      rustup toolchain install nightly
+      rustup update
+      # Doc: https://rust-lang.github.io/rustup/installation/index.html#enable-tab-completion-for-bash-fish-zsh-or-powershell
+      rustup completions zsh > "${ZSH_FUNCCOMP_DIR}/_rustup"
+      # For rust-analyzer
+      # Doc: https://rust-analyzer.github.io/manual.html#installation
+      rustup component add rust-src
+      # Doc: https://github.com/hlissner/doom-emacs/blob/d62c82ddbe0c9fa603be24f5eb8e563d16f5e45f/modules/lang/rust/README.org
+      rustup component add rustfmt-preview
+      rustup component add clippy-preview
+      # For rls
+      # Doc: https://github.com/rust-lang/rls
+      rustup component add rls
+      rustup component add rust-analysis
+      rustup component add rust-src
+    fi
   }
 
   : "install cargo packages" && {

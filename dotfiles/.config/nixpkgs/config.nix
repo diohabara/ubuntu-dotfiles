@@ -4,7 +4,17 @@
     with pkgs; rec {
       myPackages = pkgs.buildEnv {
         name = "my-packages";
-        paths = [ nixfmt typora alacritty gibo ];
+        paths = [
+          nixfmt
+          typora
+          alacritty
+          gibo
+          poetry
+          google-chrome
+          docker
+          go
+          firefox
+        ];
         extraOutputsToInstall = [ "man" "doc" "info" ];
       };
       fonts.fonts = with pkgs; [
