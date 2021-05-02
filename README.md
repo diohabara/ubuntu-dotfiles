@@ -29,6 +29,7 @@ bash -c "$(curl -fsSL raw.github.com/diohabara/ubuntu-dotfiles/master/bin/setup.
 
 - [Micrsoft Edge](https://www.omgubuntu.co.uk/2021/01/how-to-install-edge-on-ubuntu-linux)
 - [Visual Studio Code](https://code.visualstudio.com/docs/setup/linux)
+- [Slack](https://snapcraft.io/slack)
 
 ## FYI
 
