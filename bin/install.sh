@@ -62,13 +62,12 @@ function already() {
     clang-format \
     cmake \
     curl \
-    emacs \
     ffmpeg \
     fzf \
+    gdb \
     gnupg \
     grep \
     gzip \
-    gdb \
     ibus-mozc \
     jq \
     libfontconfig1-dev \
@@ -82,12 +81,7 @@ function already() {
     llvm \
     lsb-release \
     neofetch \
-    neovim \
-    nodejs \
-    npm \
     pkg-config \
-    python3 \
-    python3-pip \
     rlwrap \
     shellcheck \
     software-properties-common \
@@ -119,16 +113,6 @@ function already() {
       echo "Installed packages by nix!"
     fi
   }
-}
-
-: "install gh" && {
-  if ! command_exists gh; then
-    # Doc: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-    sudo apt-add-repository https://cli.github.com/packages
-    sudo apt update
-    sudo apt install -y gh
-  fi
 }
 
 : "install Doom Emacs" && {

@@ -5,15 +5,24 @@
       myPackages = pkgs.buildEnv {
         name = "my-packages";
         paths = [
-          nixfmt
-          typora
           alacritty
-          gibo
-          poetry
-          google-chrome
+          cargo
           docker
-          go
+          emacs
           firefox
+          gibo
+          gitAndTools.gh
+          go
+          google-chrome
+          neovim
+          nixfmt
+          nodePackages.npm
+          nodejs
+          poetry
+          python38Packages.pip 
+          python39
+          rustup
+          typora
         ];
         extraOutputsToInstall = [ "man" "doc" "info" ];
       };
