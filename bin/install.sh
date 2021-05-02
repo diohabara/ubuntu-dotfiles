@@ -101,7 +101,8 @@ function already() {
     . "${HOME}/.nix-profile/etc/profile.d/nix.sh"
   fi
   if command_exists nix; then
-    nix-channel --update
+    # Doc: https://nixos.org/manual/nix/stable/#ch-upgrading-nix
+    nix-channel --update; nix-env -iA nixpkgs.nix
   fi
 
   : "install nixpkgs" && {
