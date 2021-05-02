@@ -37,14 +37,16 @@
   )
 
 (use-package! wakatime-mode
-  :ensure t
   :when (file-exists-p "~/.wakatime.cfg")
   :init (global-wakatime-mode)
   :config (setq wakatime-cli-path "/home/jio/.local/bin/wakatime"))
 
+(setq-default tab-width 2)
+
 (after! ccls
   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
   (set-lsp-priority! 'ccls 2)) ; optional as ccls is the default in Doom
+(setq-default c-basic-offset 2)
 
 (after! lsp-rust
   (setq lsp-rust-server 'rust-analyzer))

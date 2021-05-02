@@ -70,13 +70,16 @@
 * MONITORING
 #+begin_src emacs-lisp
 (use-package! wakatime-mode
-  :ensure t
   :when (file-exists-p "~/.wakatime.cfg")
   :init (global-wakatime-mode)
   :config (setq wakatime-cli-path "/home/jio/.local/bin/wakatime"))
 #+end_src
 
 * PROGRAMMING LANGUAGE
+** Common
+#+begin_src emacs-lisp
+(setq-default tab-width 2)
+#+end_src
 ** C/C++
 + ref
   - https://github.com/hlissner/doom-emacs/tree/develop/modules/lang/cc
@@ -84,6 +87,7 @@
 (after! ccls
   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
   (set-lsp-priority! 'ccls 2)) ; optional as ccls is the default in Doom
+(setq-default c-basic-offset 2)
 #+end_src
 ** Emacs Lisp
 + ref
