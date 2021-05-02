@@ -14,6 +14,7 @@
           gitAndTools.gh
           go
           google-chrome
+          ibus-engines.mozc
           neovim
           nixfmt
           nodePackages.npm

@@ -68,7 +68,6 @@ function already() {
     gnupg \
     grep \
     gzip \
-    ibus-mozc \
     jq \
     libfontconfig1-dev \
     libfreetype6-dev \
