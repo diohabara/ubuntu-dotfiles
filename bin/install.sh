@@ -155,6 +155,7 @@ function already() {
   : "install via pip3" && {
     if command_exists pip3; then
       already 'pip3'
+      pip3 install --upgrade pip
       pip3 install black --user
       pip3 install isort --user
       pip3 install pyflakes --user 
