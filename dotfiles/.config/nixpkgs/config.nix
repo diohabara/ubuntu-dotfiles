@@ -1,22 +1,19 @@
 {
   allowUnfree = true;
+
   packageOverrides = pkgs:
     with pkgs; rec {
       myPackages = pkgs.buildEnv {
         name = "my-packages";
-        nixpkgs.overlays = [
-          (import (builtins.fetchTarball
-            "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz"))
-        ];
         paths = [
           alacritty
           cargo
           clang
           coreutils
           docker
-          emacsUnstable
           fcitx-engines.mozc
           fd
+          emacs
           firefox
           gibo
           git
@@ -24,7 +21,6 @@
           go
           google-chrome
           ibus-engines.mozc
-          neovim
           nixfmt
           nodePackages.npm
           nodejs

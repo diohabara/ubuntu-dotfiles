@@ -80,6 +80,7 @@ function already() {
     llvm \
     lsb-release \
     neofetch \
+    neovim \
     pkg-config \
     rlwrap \
     shellcheck \
