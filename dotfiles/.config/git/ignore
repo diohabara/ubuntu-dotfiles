@@ -170,3 +170,6 @@ Temporary Items
 
 ### vscode ###
 .vscode
+
+### C ###
+.ccls-cache
