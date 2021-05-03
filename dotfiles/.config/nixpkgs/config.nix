@@ -7,7 +7,6 @@
         name = "my-packages";
         paths = [
           alacritty
-          cargo
           clang
           coreutils
           docker
