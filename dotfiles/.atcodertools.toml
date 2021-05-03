@@ -1,8 +1,8 @@
 [codestyle]
 indent_type='space' # 'tab' or 'space'
 indent_width=2
-template_file='~/repo/github.com/jio/competitive_programming/ac/template/my_template.cpp'
-workspace_dir='~/repo/github.com/jio/competitive_programming/ac/'
+template_file='~/repo/github.com/diohabara/competitive_programming/ac/template/my_template.cpp'
+workspace_dir='~/repo/github.com/diohabara/competitive_programming/ac/'
 lang='cpp' # Check README.md for the supported languages.
 [postprocess]
 exec_on_each_problem_dir='clang-format -i ./*.cpp'
