@@ -20,7 +20,6 @@
           gitAndTools.gh
           go
           google-chrome
-          ibus-engines.mozc
           nixfmt
           nodePackages.npm
           nodejs
