@@ -155,13 +155,13 @@ function already() {
   : "install via pip3" && {
     if command_exists pip3; then
       already 'pip3'
-      pip3 install black
-      pip3 install isort
-      pip3 install pyflakes
-      pip3 install pytest
-      pip3 install python-language-server[all]
-      pip3 install wakatime
-      pip3 install atcoder-tools
+      pip3 install black --user
+      pip3 install isort --user
+      pip3 install pyflakes --user 
+      pip3 install pytest --user
+      pip3 install python-language-server[all] --user
+      pip3 install wakatime --user
+      pip3 install atcoder-tools --user
     fi
   }
 }
