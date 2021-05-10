@@ -11,6 +11,7 @@
           coreutils
           docker
           emacs
+          ccls
           fcitx-engines.mozc
           fd
           firefox
@@ -19,6 +20,10 @@
           git
           gitAndTools.gh
           go
+          gcc
+          gdb
+          llvm
+          neofetch
           google-chrome
           nixfmt
           nodePackages.npm

@@ -58,13 +58,11 @@ function already() {
     bash \
     build-essential \
     ca-certificates \
-    ccls \
     clang-format \
     cmake \
     curl \
     ffmpeg \
     fzf \
-    gdb \
     gnupg \
     grep \
     gzip \
@@ -77,9 +75,7 @@ function already() {
     libtinfo-dev \
     libtool \
     libxcb-xfixes0-dev \
-    llvm \
     lsb-release \
-    neofetch \
     neovim \
     pkg-config \
     rlwrap \
