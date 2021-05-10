@@ -182,6 +182,7 @@ function command_exists() {
 
 : "install npm packages" && {
   if command_exists npm; then
+    sudo npm install -g npm
     sudo npm i -g bash-language-server
   fi
 }
