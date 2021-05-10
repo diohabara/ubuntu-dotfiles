@@ -39,7 +39,7 @@
           poetry
           python38Packages.pip
           python39
-          shellckeck
+          shellcheck
           tcl
           tmux
           typora
