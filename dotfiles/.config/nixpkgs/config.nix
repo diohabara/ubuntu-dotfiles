@@ -31,6 +31,8 @@
           gzip
           jetbrains.idea-community
           jq
+          jdk
+          jre
           llvm
           neofetch
           nixfmt
