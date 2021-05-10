@@ -18,7 +18,7 @@
           emacs
           fcitx-engines.mozc
           fd
-          ffmpegj
+          ffmpeg
           firefox
           flutter
           fzf
