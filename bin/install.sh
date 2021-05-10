@@ -29,7 +29,8 @@ function command_exists() {
 }
 
 : "install packages by snap" && {
-  sudo snap install flutter --classic
+  sudo snap set system experimental.parallel-instances=true
+  sudo snap install --classic flutter android-studio
 }
 
 : "install packages by apt" && {
@@ -44,6 +45,10 @@ function command_exists() {
     clang-format \
     gnupg \
     grep \
+    lib32z1 \
+    libblkid-dev \
+    libbz2-1.0:i386 \
+    libc6:i386 \
     libcanberra-gtk-module \
     libcanberra-gtk3-module \
     libfontconfig1-dev \
@@ -52,13 +57,14 @@ function command_exists() {
     libgtk-3-dev \
     libharfbuzz-dev \
     liblzma-dev \
+    libncurses5:i386 \
     libssl-dev \
+    libstdc++6:i386 \
     libtinfo-dev \
     libtool \
     libxcb-xfixes0-dev \
     lsb-release \
     neovim \
-    libblkid-dev \
     ninja-build \
     pkg-config \
     rlwrap \

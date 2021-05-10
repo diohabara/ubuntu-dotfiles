@@ -7,7 +7,6 @@
         name = "my-packages";
         paths = [
           alacritty
-          android-studio
           bash
           ccls
           clang_12
