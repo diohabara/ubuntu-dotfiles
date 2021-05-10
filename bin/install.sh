@@ -177,19 +177,7 @@ function command_exists() {
       cargo install cargo-check
       cargo install cargo-raze
       cargo install cargo-vendor
-      cargo install du-dust
-      cargo install exa
-      cargo install fd-find
       cargo install git-delta
-      cargo install hyperfine
-      cargo install mdbook
-      cargo install procs
-      cargo install ripgrep
-      cargo install sd
-      cargo install starship
-      cargo install tealdeer
-      cargo install tectonic
-      cargo install tokei
     fi
   }
 }

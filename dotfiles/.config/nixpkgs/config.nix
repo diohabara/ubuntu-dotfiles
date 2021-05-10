@@ -32,6 +32,20 @@
           python39
           typora
           jetbrains.idea-community
+          # cargo
+          du-dust
+          exa
+          fd
+          hyperfine
+          mdbook
+          procs
+          starship
+          ripgrep
+          sd
+          starship
+          tldr
+          tectonic
+          tokei
         ];
         extraOutputsToInstall = [ "man" "doc" "info" ];
       };
