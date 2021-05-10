@@ -10,10 +10,11 @@
           clang
           coreutils
           docker
+          emacs
           fcitx-engines.mozc
           fd
-          emacs
           firefox
+          flutter
           gibo
           git
           gitAndTools.gh
