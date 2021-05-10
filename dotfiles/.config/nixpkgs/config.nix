@@ -7,23 +7,25 @@
         name = "my-packages";
         paths = [
           alacritty
+          android-studio
+          ccls
           coreutils
           docker
           emacs
-          ccls
           fcitx-engines.mozc
           fd
           firefox
           flutter
+          gcc
+          gdb
           gibo
           git
           gitAndTools.gh
           go
-          gcc
-          gdb
+          google-chrome
+          jetbrains.idea-community
           llvm
           neofetch
-          google-chrome
           nixfmt
           nodePackages.npm
           nodejs
@@ -31,7 +33,6 @@
           python38Packages.pip
           python39
           typora
-          jetbrains.idea-community
           # cargo
           du-dust
           exa
