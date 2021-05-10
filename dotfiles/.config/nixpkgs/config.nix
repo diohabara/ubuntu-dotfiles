@@ -17,7 +17,6 @@
           fd
           firefox
           flutter
-          gcc10
           gdb
           gibo
           git
