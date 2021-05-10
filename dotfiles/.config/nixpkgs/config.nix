@@ -7,7 +7,6 @@
         name = "my-packages";
         paths = [
           alacritty
-          clang
           coreutils
           docker
           emacs
