@@ -9,6 +9,7 @@
           alacritty
           android-studio
           ccls
+          clang
           coreutils
           docker
           emacs
