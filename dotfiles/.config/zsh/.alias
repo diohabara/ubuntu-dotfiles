@@ -28,6 +28,7 @@ alias gr='cd $(ghq root)'
 alias gf='cd $(ghq list -p | fzf)'
 alias gg="ghq get $*"
 ### git
+alias ga='git add'
 alias gs='git status'
 alias gd='git diff'
 alias gp='git push origin HEAD'
