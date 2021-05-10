@@ -30,7 +30,8 @@ function command_exists() {
 
 : "install packages by snap" && {
   sudo snap set system experimental.parallel-instances=true
-  sudo snap install --classic flutter android-studio
+  sudo snap install --classic flutter 
+  sudo snap install --classic android-studio
 }
 
 : "install packages by apt" && {
