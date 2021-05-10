@@ -27,7 +27,6 @@
           go
           google-chrome
           gzip
-          jetbrains.idea-community
           jq
           jdk8_headless
           llvm
