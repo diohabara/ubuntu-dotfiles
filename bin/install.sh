@@ -47,6 +47,8 @@ function command_exists() {
     grep \
     gzip \
     jq \
+    libcanberra-gtk-module \
+    libcanberra-gtk3-module \
     libfontconfig1-dev \
     libfreetype6-dev \
     libgraphite2-dev \
