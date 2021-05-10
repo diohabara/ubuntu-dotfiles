@@ -24,35 +24,15 @@ function command_exists() {
   type "$1" &> /dev/null ;
 }
 
-function installing() {
-  echo "Installing $1..."
-}
-
-function installed() {
-  echo "$1 is installed!"
-}
-
-function already() {
-  echo "$1 is already installed"
-}
-
-: "remapping" && {
+: "remap keys" && {
   gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" # turn capslock into control
 }
-
-: "uninstall packages by apt" && {
-  sudo apt purge -y --autoremove
-}
-
-#: "add packages via ppa" && {
-  # Doc: https://ubuntuhandbook.org/index.php/2020/09/install-emacs-27-1-ppa-ubuntu-20-04/
-  # sudo add-apt-repository ppa:kelleyk/emacs
-#}
 
 : "install packages by apt" && {
   echo "deb http://security.ubuntu.com/ubuntu bionic-security main" | sudo tee -a /etc/apt/sources.list.d/bionic.list # https://askubuntu.com/questions/462094/unable-to-install-libssl1-0-0i386-due-to-unmet-dependencies/462471#462471
   sudo apt update
   sudo apt upgrade -y
+  sudo apt purge -y --autoremove
   sudo apt install -y \
     apt-transport-https \
     bash \
@@ -97,6 +77,7 @@ function already() {
     curl -L https://nixos.org/nix/install | sh
     . "${HOME}/.nix-profile/etc/profile.d/nix.sh"
   fi
+
   if command_exists nix; then
     # Doc: https://nixos.org/manual/nix/stable/#ch-upgrading-nix
     nix-channel --update; nix-env -iA nixpkgs.nix
@@ -150,7 +131,6 @@ function already() {
 
   : "install via pip3" && {
     if command_exists pip3; then
-      already 'pip3'
       pip3 install --upgrade pip
       pip3 install black --user
       pip3 install isort --user
@@ -164,6 +144,12 @@ function already() {
 }
 
 : "install rust packages" && {
+  if ! command_exists rustup; then
+    # Doc: https://www.rust-lang.org/tools/install
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+    source "$HOME/.cargo/env"
+  fi
+
   : "install rustup components" && {
     if command_exist rustup; then
       rustup toolchain install stable
@@ -187,7 +173,6 @@ function already() {
 
   : "install cargo packages" && {
     if command_exists cargo; then
-      already 'cargo'
       cargo install --locked bat # https://github.com/sharkdp/bat#from-source
       cargo install cargo-check
       cargo install cargo-raze

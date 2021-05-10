@@ -31,7 +31,6 @@
           poetry
           python38Packages.pip
           python39
-          rustup
           typora
           jetbrains.idea-community
         ];
