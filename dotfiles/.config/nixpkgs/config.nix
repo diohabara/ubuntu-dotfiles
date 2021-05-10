@@ -28,6 +28,7 @@
           python39
           rustup
           typora
+          jetbrains.idea-community
         ];
         extraOutputsToInstall = [ "man" "doc" "info" ];
       };
