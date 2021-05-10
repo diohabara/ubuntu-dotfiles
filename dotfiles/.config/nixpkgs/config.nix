@@ -8,22 +8,29 @@
         paths = [
           alacritty
           android-studio
+          bash
           ccls
           clang_12
+          cmake
           coreutils
+          curl
           docker
           emacs
           fcitx-engines.mozc
           fd
+          ffmpegj
           firefox
           flutter
+          fzf
           gdb
           gibo
           git
           gitAndTools.gh
           go
           google-chrome
+          gzip
           jetbrains.idea-community
+          jq
           llvm
           neofetch
           nixfmt
@@ -32,7 +39,13 @@
           poetry
           python38Packages.pip
           python39
+          shellckeck
+          tcl
+          tmux
           typora
+          unzip
+          wget
+          zsh
           # cargo
           du-dust
           exa

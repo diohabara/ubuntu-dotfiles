@@ -35,23 +35,17 @@ function command_exists() {
   sudo apt purge -y --autoremove
   sudo apt install -y \
     apt-transport-https \
-    bash \
     build-essential \
     ca-certificates \
     clang-format \
-    cmake \
-    curl \
-    ffmpeg \
-    fzf \
     gnupg \
     grep \
-    gzip \
-    jq \
     libcanberra-gtk-module \
     libcanberra-gtk3-module \
     libfontconfig1-dev \
     libfreetype6-dev \
     libgraphite2-dev \
+    libgtk-3-dev \
     libharfbuzz-dev \
     libssl-dev \
     libtinfo-dev \
@@ -59,17 +53,12 @@ function command_exists() {
     libxcb-xfixes0-dev \
     lsb-release \
     neovim \
+    ninja-build \
     pkg-config \
     rlwrap \
-    shellcheck \
     software-properties-common \
-    tcl \
-    tmux \
-    unzip \
-    wget \
     xclip \
     zlib1g-dev \
-    zsh \
 
 }
 
