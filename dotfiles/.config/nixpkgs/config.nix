@@ -32,7 +32,7 @@
           jetbrains.idea-community
           jq
           jdk
-          jre
+          jdk8_headless
           llvm
           neofetch
           nixfmt
