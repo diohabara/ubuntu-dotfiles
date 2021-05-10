@@ -20,7 +20,6 @@
           fd
           ffmpeg
           firefox
-          flutter
           fzf
           gdb
           gibo
