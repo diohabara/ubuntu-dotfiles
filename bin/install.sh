@@ -85,10 +85,8 @@ function command_exists() {
 
   : "install nixpkgs" && {
     if command_exists nix-env; then
-      echo "Installing packages by nix..."
       # Doc: https://nixos.org/manual/nixpkgs/stable/#sec-declarative-package-management
       nix-env -iA nixpkgs.myPackages
-      echo "Installed packages by nix!"
     fi
   }
 }
