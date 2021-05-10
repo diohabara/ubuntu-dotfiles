@@ -39,12 +39,12 @@
           hyperfine
           mdbook
           procs
-          starship
           ripgrep
           sd
           starship
-          tldr
+          starship
           tectonic
+          tldr
           tokei
         ];
         extraOutputsToInstall = [ "man" "doc" "info" ];
