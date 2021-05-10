@@ -9,7 +9,7 @@
           alacritty
           android-studio
           ccls
-          clang
+          clang_12
           coreutils
           docker
           emacs
@@ -17,7 +17,7 @@
           fd
           firefox
           flutter
-          gcc
+          gcc10
           gdb
           gibo
           git
