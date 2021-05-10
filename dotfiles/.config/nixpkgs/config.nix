@@ -31,7 +31,6 @@
           gzip
           jetbrains.idea-community
           jq
-          jdk
           jdk8_headless
           llvm
           neofetch
