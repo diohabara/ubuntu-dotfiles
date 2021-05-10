@@ -47,12 +47,14 @@ function command_exists() {
     libgraphite2-dev \
     libgtk-3-dev \
     libharfbuzz-dev \
+    liblzma-dev \
     libssl-dev \
     libtinfo-dev \
     libtool \
     libxcb-xfixes0-dev \
     lsb-release \
     neovim \
+    libblkid-dev \
     ninja-build \
     pkg-config \
     rlwrap \
