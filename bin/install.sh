@@ -31,7 +31,7 @@ function command_exists() {
 : "install packages by snap" && {
   sudo snap set system experimental.parallel-instances=true
   sudo snap refresh
-  sudo snap install --classic flutter 
+  sudo snap install --classic flutter
   sudo snap install --classic android-studio
   sudo snap install --classic intellij-idea-community
 }
@@ -39,7 +39,8 @@ function command_exists() {
 : "install packages by apt" && {
   # https://askubuntu.com/questions/462094/unable-to-install-libssl1-0-0i386-due-to-unmet-dependencies/462471#462471
   echo "deb http://security.ubuntu.com/ubuntu bionic-security main" \
-    | sudo tee -a /etc/apt/sources.list.d/bionic.list 
+    | sudo tee -a /etc/apt/sources.list.d/bionic.list
+  sudo apt --purge remove emacs
   sudo apt update
   sudo apt upgrade -y
   sudo apt purge -y --autoremove
@@ -79,6 +80,11 @@ function command_exists() {
     xclip \
     zlib1g-dev \
 
+}
+
+: "install emacs27" && {
+  sudo add-apt-repository ppa:kelleyk/emacs
+  sudo apt install emacs27
 }
 
 : "install nix" && {

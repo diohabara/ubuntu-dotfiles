@@ -14,7 +14,6 @@
           coreutils
           curl
           docker
-          emacs
           fcitx-engines.mozc
           fd
           ffmpeg
