@@ -159,7 +159,7 @@ function command_exists() {
   fi
 
   : "install rustup components" && {
-    if command_exist rustup; then
+    if command_exists rustup; then
       rustup toolchain install stable
       rustup toolchain install nightly
       rustup update
