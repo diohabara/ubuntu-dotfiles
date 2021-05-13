@@ -82,11 +82,6 @@ function command_exists() {
 
 }
 
-: "install emacs27" && {
-  sudo add-apt-repository ppa:kelleyk/emacs
-  sudo apt install emacs27
-}
-
 : "install nix" && {
   if ! command_exists nix; then
     # Doc: https://nixos.org/download.html
@@ -146,13 +141,13 @@ function command_exists() {
   : "install via pip3" && {
     if command_exists pip3; then
       pip3 install --upgrade pip
+      pip3 install atcoder-tools --user
       pip3 install black --user
       pip3 install isort --user
-      pip3 install pyflakes --user 
+      pip3 install pyflakes --user
       pip3 install pytest --user
       pip3 install python-language-server[all] --user
       pip3 install wakatime --user
-      pip3 install atcoder-tools --user
     fi
   }
 }
@@ -194,13 +189,6 @@ function command_exists() {
       cargo install git-delta
     fi
   }
-}
-
-: "install npm packages" && {
-  if command_exists npm; then
-    sudo npm install -g npm
-    sudo npm i -g bash-language-server
-  fi
 }
 
 echo "Complete installation!"

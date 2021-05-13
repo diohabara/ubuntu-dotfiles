@@ -14,6 +14,7 @@
           coreutils
           curl
           docker
+          emacs
           fcitx-engines.mozc
           fd
           ffmpeg
@@ -26,8 +27,8 @@
           go
           google-chrome
           gzip
-          jq
           jdk8_headless
+          jq
           llvm
           neofetch
           nixfmt
