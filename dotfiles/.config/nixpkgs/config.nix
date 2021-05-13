@@ -8,6 +8,7 @@
         paths = [
           alacritty
           bash
+          bat
           ccls
           clang_12
           cmake

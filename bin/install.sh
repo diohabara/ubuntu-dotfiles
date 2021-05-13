@@ -182,7 +182,6 @@ function command_exists() {
 
   : "install cargo packages" && {
     if command_exists cargo; then
-      cargo install --locked bat # https://github.com/sharkdp/bat#from-source
       cargo install cargo-check
       cargo install cargo-raze
       cargo install cargo-vendor
@@ -190,5 +189,3 @@ function command_exists() {
     fi
   }
 }
-
-echo "Complete installation!"
