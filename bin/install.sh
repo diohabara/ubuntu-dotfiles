@@ -28,14 +28,6 @@ function command_exists() {
   gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" # turn capslock into control
 }
 
-: "install packages by snap" && {
-  sudo snap set system experimental.parallel-instances=true
-  sudo snap refresh
-  sudo snap install --classic flutter
-  sudo snap install --classic android-studio
-  sudo snap install --classic intellij-idea-community
-}
-
 : "install packages by apt" && {
   # https://askubuntu.com/questions/462094/unable-to-install-libssl1-0-0i386-due-to-unmet-dependencies/462471#462471
   echo "deb http://security.ubuntu.com/ubuntu bionic-security main" \
@@ -76,10 +68,19 @@ function command_exists() {
     ninja-build \
     pkg-config \
     rlwrap \
+    snapd \
     software-properties-common \
     xclip \
     zlib1g-dev \
 
+}
+
+: "install packages by snap" && {
+  sudo snap set system experimental.parallel-instances=true
+  sudo snap refresh
+  sudo snap install --classic flutter
+  sudo snap install --classic android-studio
+  sudo snap install --classic intellij-idea-community
 }
 
 : "install nix" && {
