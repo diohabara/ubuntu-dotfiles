@@ -28,12 +28,8 @@ function command_exists() {
   gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']" # turn capslock into control
 }
 
-: "install packages by snap" && {
-  sudo snap set system experimental.parallel-instances=true
-  sudo snap refresh
-  sudo snap install --classic flutter
-  sudo snap install --classic android-studio
-  sudo snap install --classic intellij-idea-community
+: "enable multi-arch support" && {
+  sudo dpkg --add-architecture i386
 }
 
 : "install packages by apt" && {
@@ -76,10 +72,19 @@ function command_exists() {
     ninja-build \
     pkg-config \
     rlwrap \
+    snapd \
     software-properties-common \
     xclip \
     zlib1g-dev \
 
+}
+
+: "install packages by snap" && {
+  sudo snap set system experimental.parallel-instances=true
+  sudo snap refresh
+  sudo snap install --classic flutter
+  sudo snap install --classic android-studio
+  sudo snap install --classic intellij-idea-community
 }
 
 : "install nix" && {
